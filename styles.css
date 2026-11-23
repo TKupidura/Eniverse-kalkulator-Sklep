@@ -174,3 +174,96 @@ body:has(> #enishop){margin:0}
 @media(max-width:760px){#enishop .ens-intro{padding:52px 0 45px}#enishop .ens-intro>p{font-size:15px}#enishop .ens-section-heading{display:block;padding-top:35px}#enishop .ens-section-heading>p{text-align:left;margin-top:8px}#enishop .ens-cards{grid-template-columns:1fr;gap:25px;max-width:540px;margin:auto}#enishop .ens-card-description,#enishop .ens-price-wrap{min-height:0}#enishop .ens-more{flex-direction:column;align-items:stretch;padding:25px}#enishop .ens-more-button{min-width:0}#enishop .ens-overlay{padding:0}#enishop .ens-dialog{height:100dvh;max-height:none;border-radius:0;width:100%}#enishop .ens-steps{padding:10px 16px;gap:4px}#enishop .ens-step{font-size:0}#enishop .ens-step-num{font-size:11px;width:24px;height:24px}#enishop .ens-dialog-head{padding:16px}#enishop .ens-dialog-head h2{font-size:21px}#enishop .ens-dialog-main{display:flex;flex-direction:column;overflow:auto}#enishop .ens-dialog-content{overflow:visible;padding:20px 16px 15px}#enishop .ens-quote-aside{border-left:0;border-top:1px solid var(--ens-line);padding:17px 16px;overflow:visible}#enishop .ens-quote-total{font-size:20px}#enishop .ens-dialog-foot{padding:12px 16px}#enishop .ens-foot-help{display:none}#enishop .ens-foot-actions{width:100%}#enishop .ens-foot-actions .ens-btn{flex:1}#enishop .ens-business-picks{grid-template-columns:1fr}}
 @media(max-width:420px){#enishop .ens-container{padding:0 16px}#enishop .ens-intro h1{font-size:39px}#enishop .ens-intro-benefits{gap:11px;flex-direction:column}#enishop .ens-form-grid{grid-template-columns:1fr}#enishop .ens-full{grid-column:auto}#enishop .ens-field-row{gap:9px}#enishop .ens-cost{min-width:60px}#enishop .ens-dialog-head h2{font-size:20px}#enishop .ens-page-footer{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){#enishop *,#enishop *::before,#enishop *::after{transition:none!important;scroll-behavior:auto!important}}
+
+
+/* v2 — four independently sized cards. Opening a detail affects only the selected card. */
+#enishop .ens-container{max-width:1490px}
+#enishop .ens-cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;align-items:start}
+#enishop .ens-card{align-self:start;min-height:688px;padding:24px 21px;transition:box-shadow .2s,border-color .2s}
+#enishop .ens-card h3{font-size:clamp(23px,2.25vw,28px);min-height:72px;line-height:1.16;overflow-wrap:anywhere}
+#enishop .ens-card-kicker{min-height:17px}
+#enishop .ens-card-description{min-height:78px}
+#enishop .ens-price{font-size:clamp(34px,3vw,43px)}
+#enishop .ens-price-wrap{min-height:128px}
+#enishop .ens-features{gap:11px}
+#enishop .ens-features li{font-size:12px}
+#enishop .ens-featured .ens-card-flag{white-space:nowrap}
+#enishop .ens-card:has(.ens-card-details[open]){z-index:1}
+#enishop .ens-card-details ul{margin-bottom:0}
+#enishop .ens-card .ens-included{flex:1 0 auto}
+
+/* v2 — large dialog and shorter, separate category steps */
+#enishop .ens-overlay{padding:10px}
+#enishop .ens-dialog{width:min(1370px,calc(100vw - 20px));height:min(910px,calc(100dvh - 20px));max-height:calc(100dvh - 20px)}
+#enishop .ens-dialog-head{padding:16px 28px 12px}
+#enishop .ens-dialog-head h2{font-size:24px}
+#enishop .ens-dialog-head p{margin-top:3px}
+#enishop .ens-steps{padding:10px 28px;gap:5px}
+#enishop .ens-step{gap:6px;white-space:nowrap}
+#enishop .ens-dialog-main{grid-template-columns:minmax(0,1fr) 286px}
+#enishop .ens-dialog-content{padding:17px 28px;scrollbar-width:thin;overscroll-behavior:contain}
+#enishop .ens-quote-aside{padding:22px 18px}
+#enishop .ens-dialog-foot{padding:9px 28px}
+#enishop .ens-pane-title{font-size:21px}
+#enishop .ens-pane-intro{margin-bottom:14px!important;line-height:1.45}
+#enishop .ens-form-section{padding:10px 0}
+#enishop .ens-form-section h3{font-size:13px;margin-bottom:5px!important}
+#enishop .ens-field-row{padding:8px 0;min-height:45px}
+#enishop .ens-field-help{font-size:10px;margin-top:1px!important;line-height:1.36}
+#enishop .ens-field-name{font-size:12px}
+#enishop .ens-bullet-list{gap:6px;margin:8px 0!important}
+#enishop .ens-bullet-list li{font-size:12px}
+#enishop .ens-included-box{padding:13px 17px}
+#enishop .ens-field-end{gap:8px}
+#enishop .ens-cost{font-size:11px}
+#enishop .ens-quote-plan{margin:6px 0 11px!important}
+#enishop .ens-quote-aside hr{margin:12px 0}
+#enishop .ens-quote-line{margin:7px 0}
+#enishop .ens-form-grid{gap:10px}
+#enishop .ens-form-section .ens-field input,#enishop .ens-form-section .ens-field select,#enishop .ens-form-section .ens-field textarea{padding:9px 11px}
+#enishop .ens-summary-expand{margin-top:8px}
+#enishop .ens-summary-expand summary{font-size:12px;font-weight:750;color:var(--ens-red);cursor:pointer;padding:5px 0}
+#enishop .ens-summary-expand .ens-summary-list{max-height:230px;overflow:auto;padding-right:6px;scrollbar-width:thin}
+#enishop .ens-summary-list{gap:6px;margin-top:6px}
+#enishop .ens-summary-line{padding-bottom:5px}
+#enishop .ens-summary-total{padding:12px 15px;margin:10px 0}
+#enishop .ens-summary-total strong{font-size:23px}
+#enishop .ens-demo-message{margin:9px 0!important;padding:8px 11px}
+#enishop .ens-change-link{margin-top:8px!important}
+#enishop .ens-language-picker{display:flex;gap:9px;align-items:stretch}
+#enishop .ens-language-picker select{background:#fff;border:1px solid #d9dee2;border-radius:5px;padding:8px 11px;max-width:270px;width:100%;font:inherit;font-size:12px;color:#101112}
+#enishop .ens-add-language{padding:8px 13px;background:#111214;color:#fff;font-size:12px;font-weight:750;border:0;border-radius:5px}
+#enishop .ens-add-language:hover{background:#34383c}
+#enishop .ens-language-chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+#enishop .ens-language-chip{display:inline-flex;align-items:center;gap:7px;padding:4px 8px;background:#f8f3f3;border:1px solid #efdddd;border-radius:4px;color:#531516;font-size:11px;font-weight:650}
+#enishop .ens-language-chip button{background:none;border:0;font-size:15px;color:#a20b0d;font-weight:700;padding:0 2px}
+#enishop .ens-steps:has(> .ens-step:nth-child(2):last-child){justify-content:flex-start;gap:35px}
+@media(max-width:1200px){
+#enishop .ens-cards{grid-template-columns:repeat(2,minmax(0,1fr));max-width:920px;margin-inline:auto}
+#enishop .ens-card{min-height:640px}
+#enishop .ens-card h3{min-height:38px}
+#enishop .ens-card-description{min-height:62px}
+#enishop .ens-step{font-size:10px}
+}
+@media(max-width:760px){
+#enishop .ens-cards{grid-template-columns:1fr;max-width:520px}
+#enishop .ens-card{min-height:0;padding:24px 22px}
+#enishop .ens-card h3{min-height:0}
+#enishop .ens-card-description{min-height:0}
+#enishop .ens-price-wrap{min-height:0}
+#enishop .ens-dialog{width:100%;height:100dvh;max-height:none;border-radius:0}
+#enishop .ens-overlay{padding:0}
+#enishop .ens-dialog-head{padding:13px 16px 11px}
+#enishop .ens-steps{padding:9px 16px}
+#enishop .ens-step{font-size:0}
+#enishop .ens-dialog-main{display:flex}
+#enishop .ens-dialog-content{padding:18px 16px}
+#enishop .ens-quote-aside{padding:15px 16px}
+#enishop .ens-dialog-foot{padding:10px 16px}
+}
+@media(max-width:420px){
+#enishop .ens-language-picker{flex-direction:column}
+#enishop .ens-language-picker select{max-width:none}
+#enishop .ens-field-row{align-items:flex-start}
+#enishop .ens-field-end{align-self:center}
+}
