@@ -22,6 +22,7 @@ jobs:
       - name: Verify JavaScript and page assets
         run: |
           node --check app.js
+          node test/smoke.cjs
           test -s index.html
           test -s styles.css
           grep -q 'id="ens-cards"' index.html
