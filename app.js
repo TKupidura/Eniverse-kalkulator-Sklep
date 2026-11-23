@@ -135,7 +135,7 @@
     "excluded": [],
     "scope": [
       "Dobór technologii i architektury według potrzeb",
-      "Integracje z BaseLinker, SellAssist, Subiekt GT lub Comarch ERP Optima",
+      "Integracje z Base (BaseLinker), Sellasist, Subiekt GT lub Comarch ERP Optima",
       "Integracja z magazynem, hurtownią lub fulfillmentem",
       "Możliwość sprzedaży B2B i niestandardowych cenników",
       "Migracja sklepu i katalogu — po analizie źródła",
@@ -215,14 +215,14 @@
   },
   {
     "key": "baselinker",
-    "name": "BaseLinker",
+    "name": "Base (dawniej BaseLinker)",
     "hint": "Integracja zamówień i sprzedaży wielokanałowej",
     "price": null,
     "category": "integration"
   },
   {
     "key": "sellassist",
-    "name": "SellAssist",
+    "name": "Sellasist",
     "hint": "Połączenie z narzędziem do zarządzania sprzedażą",
     "price": null,
     "category": "integration"
@@ -316,7 +316,7 @@
     "recurring": true
   }
 ];
-  const customChoices = ["Zaawansowana personalizacja wyglądu","Integracja Allegro / BaseLinker / SellAssist","Subiekt GT / Comarch ERP Optima","Synchronizacja z hurtownią","Sprzedaż B2B i cenniki hurtowe","Fulfillment i automatyzacje","Migracja obecnego sklepu","Rozszerzony marketing i analityka"];
+  const customChoices = ["Zaawansowana personalizacja wyglądu","Integracja Allegro / Base (BaseLinker) / Sellasist","Subiekt GT / Comarch ERP Optima","Synchronizacja z hurtownią","Sprzedaż B2B i cenniki hurtowe","Fulfillment i automatyzacje","Migracja obecnego sklepu","Rozszerzony marketing i analityka"];
   const languageChoices = ["Angielski","Niemiecki","Ukraiński","Czeski","Francuski","Hiszpański","Włoski","Niderlandzki","Słowacki","Szwedzki","Norweski","Duński","Portugalski","Rumuński"];
   const paymentChoices = [["przelewy24","Przelewy24"],["payu","PayU"],["tpay","Tpay"],["paynow","PayNow"],["stripe","Stripe"],["paypal","PayPal"],["klarna","Klarna"]];
   const FINAL_STEP = 6;
@@ -406,7 +406,7 @@
     if(step===3)return paneIntro("Integracje z systemami","Połącz sklep z księgowością, marketplace lub narzędziami do automatyzacji sprzedaży.")+
       sec("Księgowość i faktury",addonDefs.filter(a=>a.category==="accounting").map(switchRow).join(""))+
       sec("Marketplace, ERP i konta klientów",addonDefs.filter(a=>a.category==="integration").map(switchRow).join(""))+
-      '<p class="ens-compact-note">Wdrożenie integracji ERP, BaseLinker, SellAssist i innych rozbudowanych systemów wymaga analizy. W podsumowaniu pojawi się informacja o dodatkowej wycenie.</p>';
+      '<p class="ens-compact-note">Wdrożenie integracji ERP, Base (BaseLinker), Sellasist i innych rozbudowanych systemów wymaga analizy. W podsumowaniu pojawi się informacja o dodatkowej wycenie.</p>';
     if(step===4)return paneIntro("SEO i marketing","Narzędzia wspierające analizę sprzedaży, pozyskiwanie klientów i powroty do koszyka.")+
       sec("Analityka, SEO i sprzedaż",addonDefs.filter(a=>a.category==="marketing").map(switchRow).join(""))+
       '<p class="ens-compact-note">Kampanie reklamowe i abonamenty zewnętrznych dostawców są niezależne od jednorazowej konfiguracji sklepu.</p>';
