@@ -1,3 +1,4 @@
+body:has(> #enishop){margin:0}
 /* Eniverse Shop Calculator v1 — all page-level selectors are scoped to #enishop. */
 #enishop { --ens-red:#E20B0C; --ens-red-hover:#bc090a; --ens-ink:#101112; --ens-text:#26282b; --ens-muted:#69727b; --ens-line:#e3e6e9; --ens-soft:#f6f7f8; --ens-bg:#fff; font:400 15px/1.55 "DM Sans",system-ui,-apple-system,sans-serif; color:var(--ens-ink); background:var(--ens-bg); min-height:100vh; width:100%; }
 #enishop *,#enishop *::before,#enishop *::after{box-sizing:border-box}
