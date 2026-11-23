@@ -139,7 +139,7 @@
     const s=state(), a=price(), isBiz=current.price==null;
     const total=isBiz?'<div class="ens-summary-total"><span>Wycena projektu</span><div><strong>Indywidualna</strong></div></div>':`<div class="ens-summary-total"><span>Projekt i dodatki jednorazowe</span><div><strong>${money(a.project)}</strong> netto</div>${a.annual?`<p class="ens-compact-note">Hosting na pierwszy rok: ${money(a.annual)} netto (osobno od projektu)</p>`:""}${a.custom?'<p class="ens-compact-note">Wybrane elementy wymagają doprecyzowania i mogą zmienić finalną wycenę.</p>':""}<p class="ens-compact-note">Zaliczka 50% za projekt: ${money(a.project/2)} · Pozostała kwota: ${money(a.project/2)}</p></div>`;
     return paneIntro(isBiz?"Zapytaj o wycenę Business":"Twoja wycena — "+current.name,isBiz?"Podsumuj potrzeby i prześlij dane kontaktowe. Przygotujemy ofertę po ustaleniu szczegółów.":"Sprawdź, co zawiera wybrany pakiet i jakie dodatki zostały naliczone.")+
-      sec("Co wybrano",summaryLines()+`<p style="margin-top:15px">${direct?'<button class="ens-action-link" type="button" data-action="configure">Potrzebujesz skonfigurować pakiet? Przejdź do konfiguratora ↗</button>':'<button class="ens-action-link" type="button" data-action="edit">Zmień konfigurację ↗</button>'}</p>`)+total+
+      sec("Co wybrano",summaryLines()+`<p class="ens-change-link">${direct?'<button class="ens-action-link" type="button" data-action="configure">Potrzebujesz skonfigurować pakiet? Przejdź do konfiguratora ↗</button>':'<button class="ens-action-link" type="button" data-action="edit">Zmień konfigurację ↗</button>'}</p>`)+total+
       sec("Twoje dane kontaktowe",`<form id="ens-lead-form" novalidate><div class="ens-form-grid">
         ${field("clientName","Imię i nazwisko / nazwa firmy","text","Np. Jan Kowalski",true)}
         ${field("clientEmail","Adres e-mail","email","kontakt@firma.pl",true)}
@@ -150,7 +150,7 @@
         </div>
         <p class="ens-demo-message">To demonstracyjny formularz. Po kliknięciu przycisku zobaczysz gotową treść zapytania do skopiowania. Wiadomość nie zostanie wysłana do Eniverse.</p>
         ${s.errors.length?'<p class="ens-error" role="alert">Uzupełnij wymagane pola i sprawdź poprawność adresu e-mail oraz adresu sklepu.</p>':""}
-        <button type="submit" class="ens-btn ens-btn-primary" style="width:100%;justify-content:center">Przygotuj podgląd zapytania <span aria-hidden="true">↗</span></button>
+        <button type="submit" class="ens-btn ens-btn-primary ens-submit">Przygotuj podgląd zapytania <span aria-hidden="true">↗</span></button>
         ${s.prepared?`<div class="ens-success" id="ens-preview" role="status"><h3>Zapytanie przygotowane — nie wysłano wiadomości</h3><p>Możesz skopiować treść i przesłać ją do agencji wybranym sposobem.</p><textarea class="ens-preview-area" id="ens-quote-copy" readonly></textarea><button type="button" class="ens-btn ens-btn-outline" data-action="copy">Kopiuj treść zapytania</button></div>`:""}
       </form>`);
   }
