@@ -267,3 +267,15 @@ body:has(> #enishop){margin:0}
 #enishop .ens-field-row{align-items:flex-start}
 #enishop .ens-field-end{align-self:center}
 }
+
+/* Two-column integration and marketing sections keep the large desktop modal scroll-free at typical heights. */
+@media(min-width:900px){
+#enishop .ens-form-section:has([data-addon="allegro"]),
+#enishop .ens-form-section:has([data-addon="abandoned"]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}
+#enishop .ens-form-section:has([data-addon="allegro"])>h3,
+#enishop .ens-form-section:has([data-addon="abandoned"])>h3{grid-column:1/-1}
+#enishop .ens-form-section:has([data-addon="allegro"])>.ens-field-row,
+#enishop .ens-form-section:has([data-addon="abandoned"])>.ens-field-row{min-width:0;padding:8px 6px}
+#enishop .ens-form-section:has([data-addon="allegro"]) .ens-field-end,
+#enishop .ens-form-section:has([data-addon="abandoned"]) .ens-field-end{margin-left:4px}
+}
