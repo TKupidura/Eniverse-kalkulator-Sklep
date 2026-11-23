@@ -279,3 +279,8 @@ body:has(> #enishop){margin:0}
 #enishop .ens-form-section:has([data-addon="allegro"]) .ens-field-end,
 #enishop .ens-form-section:has([data-addon="abandoned"]) .ens-field-end{margin-left:4px}
 }
+
+/* v2.1: same closed-card height and aligned buttons without coupling expanded accordions. */
+#enishop .ens-cards .ens-card{min-height:var(--ens-card-height,688px)}
+@media(max-width:1200px){#enishop .ens-cards .ens-card{min-height:var(--ens-card-height,640px)}}
+@media(max-width:760px){#enishop .ens-cards .ens-card{min-height:0}}
