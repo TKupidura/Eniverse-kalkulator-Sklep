@@ -1,45 +1,52 @@
 # Eniverse — kalkulator wyceny sklepów internetowych
 
-Oddzielne repozytorium kalkulatora sklepów WooCommerce agencji Eniverse.
+Osobny projekt kalkulatora WooCommerce agencji Eniverse.
 
-## Podgląd online
+## Podgląd
 
-**[Otwórz kalkulator sklepów](https://tkupidura.github.io/Eniverse-kalkulator-Sklep/)**
+**[Otwórz interaktywny kalkulator sklepów](https://tkupidura.github.io/Eniverse-kalkulator-Sklep/)**
 
-Podgląd jest publikowany automatycznie przez GitHub Pages po zatwierdzeniu zmian w gałęzi `main`.
+Podgląd jest automatycznie publikowany w GitHub Pages po każdej zmianie w `main`.
 
-## Wersja v1 (demonstracyjna)
+## Pakiety — wersja robocza v2
 
-Pakiety:
-- **Standard — 2 800 zł netto**
-- **PRO — 4 500 zł netto** (pakiet wyróżniony)
-- **Business — wycena indywidualna** (bez publicznej ceny minimalnej)
+| Pakiet | Cena netto | Zakres |
+|---|---:|---|
+| Start e-Commerce | 2 290 zł | 5 produktów prostych, 1 h szkolenia, gotowy motyw z Envato Market / TemplateMonster itp.; licencja osobno |
+| Standard | 2 800 zł | 10 produktów prostych, 2 h szkolenia, standardowe podstrony sklepu |
+| PRO (wyróżniony) | 4 500 zł | 20 produktów, blog, InPost, rozszerzona personalizacja, GA4 + GSC |
+| Business | Wycena indywidualna | Integracje, systemy firmy, B2B, automatyzacje i projekty niestandardowe |
 
-Zaimplementowano:
-- trzy responsywne karty pakietów i rozwijane pełne zakresy,
-- „Wybieram pakiet” → podsumowanie bez przechodzenia przez konfigurator,
-- „Skonfiguruj pakiet” → 5 kroków z wyceną dodatków,
-- osobny formularz rozpoznania potrzeb dla Business,
-- rozbicie wyceny na koszty jednorazowe i roczne,
-- walidację formularza i generowanie tekstowego podglądu zapytania,
-- obsługę klawiatury, zamykanie modalu Escape i przywracanie fokusu.
+Każdy pakiet zawiera typowy zestaw podstron i widoków sklepu (strona główna, katalog, kategorie, karty produktów, koszyk, zamówienie, konto, strony informacyjne). Nie stosujemy sztucznego limitu 2/4 standardowych podstron. Dodatkowe nietypowe podstrony to osobna usługa.
 
-**Uwaga:** formularz jest demonstracyjny. Nie wysyła wiadomości i nie zapisuje danych. Wartości niezatwierdzonych dodatków są robocze.
+## Konfigurator
+
+Dla pakietów Start e-Commerce, Standard i PRO:
+
+1. Zakres pakietu
+2. Produkty i treści
+3. Płatności i dostawa (w tym Stripe, PayPal, Klarna, fulfillment)
+4. Integracje (iFirma, Fakturownia, Allegro, Base — dawniej BaseLinker, Sellasist, Subiekt GT, Comarch ERP Optima, logowanie FB)
+5. SEO i marketing (Google Analytics 4, GSC, sklep na Facebooku/Instagramie, porzucone koszyki)
+6. Dodatkowe języki, poprawki, hosting i opieka
+7. Podsumowanie i formularz
+
+Business ma krótszą ścieżkę opisu potrzeb i formularza.
+
+Główny operator płatności wybierany jest w cenie pakietu. Jeżeli jako główny wybrano Stripe/PayPal/Klarna, nie naliczamy ponownie opłaty za tę samą integrację.
+
+Dodatki bez ustalonego cennika są oznaczone jako **Do wyceny**. Koszty licencji, abonamentów platform i opłat operatorów są osobne.
 
 ## Pliki
 
-- `index.html` — widok strony i szkielet konfiguratora;
-- `styles.css` — responsywne style, izolowane selektorami `#enishop`;
-- `app.js` — zakresy pakietów, ceny, konfiguracja i podsumowanie;
-- `test/smoke.cjs` — podstawowe testy kalkulacji i formularza;
-- `.github/workflows/pages.yml` — testy i automatyczna publikacja podglądu.
+- `index.html` — niezależny podgląd;
+- `styles.css` — responsywny wygląd w przestrzeni nazw `#enishop`;
+- `app.js` — pakiety, konfigurator, ceny i zapytanie;
+- `test/smoke.cjs` — testy scenariuszy cenowych i formularza;
+- `.github/workflows/pages.yml` — weryfikacja i wdrożenie do GitHub Pages.
 
-## Ograniczenia pierwszej wersji
+**Ważne:** formularz to makieta — nie wysyła wiadomości. Ceny dodatków są robocze; przed użyciem produkcyjnym wymagają zatwierdzenia. Cena hostingu na pierwszy rok i promocje także wymagają potwierdzenia.
 
-- Nie jest podłączony docelowy WordPress/Elementor ani system wysyłania zapytań.
-- Zakresy, ceny dodatków i promocja hostingu wymagają zatwierdzenia przed publikacją produkcyjną.
-- Kolejne platformy (Shoper, Shopify, Wix, PrestaShop, Magento) są planowane na przyszłość; v1 dotyczy WooCommerce.
+## Oddzielny projekt
 
-## Oddzielny kalkulator stron WWW
-
-[Repozytorium kalkulatora stron](https://github.com/TKupidura/Eniverse-kalkulator) jest niezależne i nie zostało zmienione w ramach tego projektu.
+[Kalkulator stron WWW](https://github.com/TKupidura/Eniverse-kalkulator) pozostaje niezależny. Inne platformy sklepowe planowane są na kolejne etapy.
