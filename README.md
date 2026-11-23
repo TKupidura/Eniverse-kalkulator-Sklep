@@ -1,22 +1,45 @@
 # Eniverse — kalkulator wyceny sklepów internetowych
 
-Osobne repozytorium kalkulatora wyceny sklepów WooCommerce dla agencji Eniverse.
+Oddzielne repozytorium kalkulatora sklepów WooCommerce agencji Eniverse.
 
-## Status
-Etap planowania oferty. Pakiety, ceny i zakresy funkcjonalności są w trakcie ustalania. Nie wdrażamy finalnego kalkulatora przed zatwierdzeniem oferty.
+## Podgląd online
 
-## Zasady projektu
-- Wizualnie i funkcjonalnie nawiązuje do [kalkulatora stron WWW](https://github.com/TKupidura/Eniverse-kalkulator), lecz pozostaje od niego niezależny.
-- Kod kalkulatora sklepów i jego kolejne aktualizacje zapisujemy **tylko w tym repozytorium**.
-- Docelowa technologia: HTML, CSS, JavaScript; osadzenie w WordPress / Elementor.
-- Własne identyfikatory i przestrzeń nazw, aby uniknąć kolizji z kalkulatorem stron WWW.
-- Pakiety, ceny, dodatki i zasady rozliczeń będą zgodne z osobno zatwierdzoną ofertą.
-- Wersja demonstracyjna będzie publikowana przez GitHub Pages po przygotowaniu pliku `index.html` i włączeniu Pages dla gałęzi `main`.
+**[Otwórz kalkulator sklepów](https://tkupidura.github.io/Eniverse-kalkulator-Sklep/)**
 
-## Planowany podgląd
-https://tkupidura.github.io/Eniverse-kalkulator-Sklep/
+Podgląd jest publikowany automatycznie przez GitHub Pages po zatwierdzeniu zmian w gałęzi `main`.
 
-Adres jest docelowy, a nie potwierdzony jako już aktywny.
+## Wersja v1 (demonstracyjna)
 
-## Strona docelowa
-https://eniverse.pl/ — podstrona oferty sklepów internetowych.
+Pakiety:
+- **Standard — 2 800 zł netto**
+- **PRO — 4 500 zł netto** (pakiet wyróżniony)
+- **Business — wycena indywidualna** (bez publicznej ceny minimalnej)
+
+Zaimplementowano:
+- trzy responsywne karty pakietów i rozwijane pełne zakresy,
+- „Wybieram pakiet” → podsumowanie bez przechodzenia przez konfigurator,
+- „Skonfiguruj pakiet” → 5 kroków z wyceną dodatków,
+- osobny formularz rozpoznania potrzeb dla Business,
+- rozbicie wyceny na koszty jednorazowe i roczne,
+- walidację formularza i generowanie tekstowego podglądu zapytania,
+- obsługę klawiatury, zamykanie modalu Escape i przywracanie fokusu.
+
+**Uwaga:** formularz jest demonstracyjny. Nie wysyła wiadomości i nie zapisuje danych. Wartości niezatwierdzonych dodatków są robocze.
+
+## Pliki
+
+- `index.html` — widok strony i szkielet konfiguratora;
+- `styles.css` — responsywne style, izolowane selektorami `#enishop`;
+- `app.js` — zakresy pakietów, ceny, konfiguracja i podsumowanie;
+- `test/smoke.cjs` — podstawowe testy kalkulacji i formularza;
+- `.github/workflows/pages.yml` — testy i automatyczna publikacja podglądu.
+
+## Ograniczenia pierwszej wersji
+
+- Nie jest podłączony docelowy WordPress/Elementor ani system wysyłania zapytań.
+- Zakresy, ceny dodatków i promocja hostingu wymagają zatwierdzenia przed publikacją produkcyjną.
+- Kolejne platformy (Shoper, Shopify, Wix, PrestaShop, Magento) są planowane na przyszłość; v1 dotyczy WooCommerce.
+
+## Oddzielny kalkulator stron WWW
+
+[Repozytorium kalkulatora stron](https://github.com/TKupidura/Eniverse-kalkulator) jest niezależne i nie zostało zmienione w ramach tego projektu.
