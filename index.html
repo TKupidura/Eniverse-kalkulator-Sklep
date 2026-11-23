@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101112">
+  <meta name="description" content="Skonfiguruj sklep internetowy WooCommerce z Eniverse. Porównaj pakiety Standard, PRO i Business i przygotuj wycenę.">
+  <title>Kalkulator sklepów internetowych — Eniverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+<main id="enishop" class="ens-calc">
+  <div class="ens-container">
+    <header class="ens-intro">
+      <div class="ens-eyebrow"><span class="ens-eyebrow-dot"></span> ENIVERSE / SKLEPY INTERNETOWE</div>
+      <h1>Twój sklep internetowy.<br><span>Na Twoich zasadach.</span></h1>
+      <p>Wybierz gotowy pakiet WooCommerce lub dopasuj jego zakres do swojego biznesu. Sprawdź wycenę bez zobowiązań.</p>
+      <div class="ens-intro-benefits"><span>✓ Bez abonamentu za wykonanie</span><span>✓ WordPress + WooCommerce</span><span>✓ Rozbudowa w przyszłości</span></div>
+    </header>
+    <div class="ens-section-heading"><div><span class="ens-overline">01 / WYBIERZ PAKIET</span><h2>Dopasuj sklep do swoich potrzeb</h2></div><p>Każdy pakiet zawiera fundamenty potrzebne do rozpoczęcia sprzedaży.</p></div>
+    <div id="ens-cards" class="ens-cards" aria-label="Porównanie pakietów"></div>
+    <div class="ens-bottom-note"><span class="ens-note-icon">i</span><p>Wycena jest orientacyjna i nie stanowi oferty handlowej. Ceny netto, bez kosztów licencji firm trzecich. Zakres pakietów i promocje związane z hostingiem zostaną ostatecznie potwierdzone przed wdrożeniem.</p></div>
+    <div class="ens-more"><div><span class="ens-overline">POTRZEBUJESZ POMOCY?</span><h2>Nie wiesz, od czego zacząć?</h2><p>Opowiedz nam o swoim pomyśle. Dobierzemy zakres, który odpowiada Twojemu budżetowi.</p></div><button type="button" class="ens-more-button" data-plan="business" data-mode="direct">Porozmawiajmy o sklepie <span aria-hidden="true">↗</span></button></div>
+    <footer class="ens-page-footer"><span>ENIVERSE <span class="ens-footer-lite">/ KALKULATOR SKLEPÓW</span></span><span>Wersja demonstracyjna · formularz nie wysyła wiadomości</span></footer>
+  </div>
+  <div id="ens-overlay" class="ens-overlay" hidden>
+    <section class="ens-dialog" role="dialog" aria-modal="true" aria-labelledby="ens-dialog-title" aria-describedby="ens-dialog-subtitle">
+      <header class="ens-dialog-head">
+        <div><span class="ens-overline ens-dialog-kicker">ENIVERSE / KONFIGURATOR</span><h2 id="ens-dialog-title">Konfiguruj pakiet</h2><p id="ens-dialog-subtitle">Dopasuj zakres do potrzeb Twojego biznesu.</p></div>
+        <button type="button" id="ens-close" class="ens-close" aria-label="Zamknij konfigurator">×</button>
+      </header>
+      <div id="ens-steps" class="ens-steps" aria-label="Etapy konfiguracji"></div>
+      <div class="ens-dialog-main">
+        <div class="ens-dialog-content" id="ens-dialog-content" tabindex="-1"></div>
+        <aside class="ens-quote-aside" id="ens-aside" aria-label="Bieżąca wycena"></aside>
+      </div>
+      <footer class="ens-dialog-foot" id="ens-dialog-foot">
+        <span class="ens-foot-help">Wszystkie ceny netto · bez zobowiązań</span>
+        <div class="ens-foot-actions"><button type="button" id="ens-prev" class="ens-btn ens-btn-outline">← Wstecz</button><button type="button" id="ens-next" class="ens-btn ens-btn-primary">Dalej <span aria-hidden="true">→</span></button></div>
+      </footer>
+    </section>
+  </div>
+</main>
+</body>
+</html>
