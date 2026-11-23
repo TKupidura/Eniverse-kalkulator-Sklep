@@ -55,7 +55,7 @@ assert.match(node("#ens-dialog-content").innerHTML,/W cenie/);
 asideHasPrice(2305);
 switchExtra("paypal",true);asideHasPrice(2555);
 next(); // 3 integrations
-for(const label of ["iFirma","Fakturownia","Allegro","BaseLinker","SellAssist","Subiekt GT","Comarch ERP Optima","Logowanie przez Facebook"])assert.ok(node("#ens-dialog-content").innerHTML.includes(label),label);
+for(const label of ["iFirma","Fakturownia","Allegro","Base (dawniej BaseLinker)","Sellasist","Subiekt GT","Comarch ERP Optima","Logowanie przez Facebook"])assert.ok(node("#ens-dialog-content").innerHTML.includes(label),label);
 switchExtra("ifirma",true);asideHasPrice(2805);
 next(); // 4 marketing
 for(const label of ["Google Analytics 4","Google Search Console","Porzucone koszyki","Sklep na Facebooku"])assert.ok(node("#ens-dialog-content").innerHTML.includes(label),label);
