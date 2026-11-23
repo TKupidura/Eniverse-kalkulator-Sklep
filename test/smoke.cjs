@@ -23,7 +23,7 @@ const document={
 vm.runInNewContext(source,{document,window:{isSecureContext:false},navigator:{},Intl,Set,console});
 const card=node("#ens-cards").innerHTML;
 for(const name of ["Start e-Commerce","Standard","PRO","Business"])assert.ok(card.includes(name),name);
-assert.equal((card.match(/class="ens-card ens-/g)||[]).length,4);
+assert.equal((card.match(/<article class="ens-card /g)||[]).length,4);
 assert.match(card,/2[\u00a0\u202f ]?290/);
 assert.match(card,/Wycena<br>indywidualna/);
 assert.doesNotMatch(card,/8[ \u00a0\u202f]?990/);
@@ -64,7 +64,7 @@ next(); // 5 languages
 assert.match(node("#ens-dialog-content").innerHTML,/Wybierz język/);
 addLanguage("Niemiecki");
 assert.match(node("#ens-dialog-content").innerHTML,/Niemiecki/);
-assert.match(node("#ens-aside").innerHTML,/dodatkow/);
+assert.match(node("#ens-aside").innerHTML,/dodatkowej wyceny|osobnej wyceny/);
 next(); // 6 summary
 assert.match(node("#ens-dialog-content").innerHTML,/3[\u00a0\u202f ]?005/);
 assert.match(node("#ens-dialog-content").innerHTML,/Niemiecki/);
