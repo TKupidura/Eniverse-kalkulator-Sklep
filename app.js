@@ -600,5 +600,48 @@
     if(event.shiftKey && document.activeElement===first){event.preventDefault();last.focus();}
     else if(!event.shiftKey && document.activeElement===last){event.preventDefault();first.focus();}
   });
+  // Equalize the closed card heights while keeping expanded details independent.
+  // A temporary closed copy is measured, so an opened card never stretches its neighbors.
+  const equalizeClosedCardHeights = () => {
+    const container = one("#ens-cards");
+    if (!container || !container.style || typeof container.querySelectorAll !== "function") return;
+    const cards = [...container.querySelectorAll(".ens-card")];
+    container.style.removeProperty("--ens-card-height");
+    if (cards.length < 2 || (typeof window.matchMedia === "function" && window.matchMedia("(max-width: 760px)").matches)) return;
+    let max = 0;
+    for (const card of cards) {
+      const width = card.getBoundingClientRect().width;
+      if (!width) return;
+      const copy = card.cloneNode(true);
+      const details = copy.querySelector(".ens-card-details");
+      if (details) details.open = false;
+      copy.style.position = "absolute";
+      copy.style.visibility = "hidden";
+      copy.style.pointerEvents = "none";
+      copy.style.minHeight = "0";
+      copy.style.height = "auto";
+      copy.style.width = width + "px";
+      copy.setAttribute("aria-hidden", "true");
+      container.appendChild(copy);
+      max = Math.max(max, copy.getBoundingClientRect().height);
+      copy.remove();
+    }
+    if (max) container.style.setProperty("--ens-card-height", Math.ceil(max) + "px");
+  };
   buildCards();
+  equalizeClosedCardHeights();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(equalizeClosedCardHeights);
+  if (typeof ResizeObserver !== "undefined") {
+    let lastWidth = 0;
+    const observer = new ResizeObserver(entries => {
+      const width = entries[0]?.contentRect.width || 0;
+      if (width && Math.abs(width - lastWidth) > 1) {
+        lastWidth = width;
+        equalizeClosedCardHeights();
+      }
+    });
+    observer.observe(one("#ens-cards"));
+  } else if (typeof window.addEventListener === "function") {
+    window.addEventListener("resize", equalizeClosedCardHeights);
+  }
 })();
