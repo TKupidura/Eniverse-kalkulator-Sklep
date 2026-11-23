@@ -8,63 +8,340 @@
   const money = (n) => new Intl.NumberFormat("pl-PL", {maximumFractionDigits:0}).format(n) + " zł";
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
   const packages = {
-    standard: {
-      id:"standard", name:"Standard", tag:"NA DOBRY POCZĄTEK", price:2800, tagline:"Rozpocznij sprzedaż online", description:"Dla firm, które chcą rozpocząć sprzedaż w sieci bez dużej inwestycji.",
-      products:10, pages:2, revisions:1, warranty:"6 miesięcy", delivery:"2–4 tygodnie",
-      benefits:["Sklep WordPress + WooCommerce","Gotowy motyw dopasowany do marki","Wprowadzenie 10 produktów prostych","Koszyk i płatności online","Podstawowa konfiguracja dostaw","Szkolenie z obsługi — 2 godz."],
-      excluded:["Blog i integracja InPost — dodatkowo"],
-      scope:["Dostosowanie do urządzeń mobilnych","Zmiana logo, kolorów, fontów i zdjęć","Do 2 podstron informacyjnych","Warianty produktów obsługiwane przez WooCommerce","Kody rabatowe i stany magazynowe","Google Analytics 4 — podstawowa konfiguracja","Podstawowe SEO techniczne","Konfiguracja cookies i mechanizmu Omnibus","1 runda poprawek","Gwarancja na wykonane prace — 6 miesięcy","Testy składania zamówienia"]
-    },
-    pro: {
-      id:"pro", name:"PRO", tag:"DLA ROZWIJAJĄCEGO SIĘ BIZNESU", price:4500, featured:true,
-      tagline:"Więcej możliwości sprzedaży", description:"Dla firm, które potrzebują bardziej dopracowanego sklepu i dodatkowych narzędzi.",
-      products:20, pages:4, revisions:2, warranty:"12 miesięcy", delivery:"4–6 tygodni",
-      benefits:["Wszystko z pakietu Standard","Rozszerzona personalizacja motywu","Wprowadzenie 20 produktów prostych","Integracja InPost w cenie wdrożenia","Blog i 4 podstrony informacyjne","Google Search Console + Analytics 4"],
-      excluded:[],
-      scope:["Responsywny sklep WooCommerce","Rozszerzone dopasowanie gotowych sekcji","Wygodniejsza nawigacja i prezentacja produktów","Konfiguracja jednej bramki płatności","Podstawowe strefy i koszty wysyłki","Kody rabatowe, magazyn i raporty WooCommerce","Podstawowe SEO techniczne","Konfiguracja cookies i mechanizmu Omnibus","Szkolenie 2 godziny + instrukcja PDF","2 rundy poprawek","Gwarancja na wykonane prace — 12 miesięcy","Testy procesu zakupowego"]
-    },
-    business: {
-      id:"business", name:"Business", tag:"SKLEP DOPASOWANY DO FIRMY", price:null,
-      tagline:"Sklep na miarę Twojego biznesu", description:"Dla firm wymagających integracji, automatyzacji i niestandardowych rozwiązań.",
-      delivery:"Indywidualnie", revisions:null, warranty:"Do ustalenia",
-      benefits:["Indywidualny zakres wdrożenia","Integracje z zewnętrznymi systemami","Procesy B2B i automatyzacje","Zaawansowana konfiguracja sprzedaży","Rozszerzone funkcjonalności","Dedykowana konsultacja projektu"],
-      excluded:[],
-      scope:["Wycena po poznaniu zakresu projektu","Możliwość integracji z Allegro lub Base","Integracje z ERP, hurtownią i magazynem","Rozbudowane warianty, filtry i cenniki","Możliwe rozwiązania B2B i automatyzacje","Zakres realizacji ustalany indywidualnie"]
-    }
-  };
+  "start": {
+    "id": "start",
+    "name": "Start e-Commerce",
+    "tag": "START SPRZEDAŻY ONLINE",
+    "price": 2290,
+    "description": "Ekonomiczny sklep oparty na gotowym szablonie, idealny na początek.",
+    "products": 5,
+    "pagesLabel": "Komplet podstawowych podstron",
+    "revisions": 1,
+    "training": "1 godzina",
+    "warranty": "6 miesięcy",
+    "delivery": "Do ustalenia",
+    "benefits": [
+      "Gotowy szablon z bibliotek komercyjnych",
+      "5 produktów prostych wprowadzonych w cenie",
+      "Komplet standardowych podstron sklepu",
+      "Płatności i podstawowa dostawa",
+      "Szkolenie z obsługi — 1 godz.",
+      "WordPress + WooCommerce i wersja mobilna"
+    ],
+    "excluded": [
+      "Licencja wybranego szablonu — osobno",
+      "Blog i integracje dodatkowe — opcjonalnie"
+    ],
+    "scope": [
+      "Motyw WooCommerce z Envato Market, TemplateMonster lub podobnej biblioteki",
+      "Instalacja i dostosowanie gotowego szablonu: logo, kolory i treści",
+      "Strona główna, sklep, kategorie, produkty, koszyk, kasa, konto i informacje dla klientów",
+      "Wprowadzenie 5 produktów prostych z materiałów klienta",
+      "Jedna bramka płatności i podstawowe sposoby dostawy",
+      "Kody rabatowe, konto klienta i obsługa zamówień",
+      "Podstawowe ustawienia SEO technicznego",
+      "1 runda poprawek i 1 godzina szkolenia online",
+      "Licencja motywu / dodatków oraz dokumenty prawne klienta nie są w cenie"
+    ]
+  },
+  "standard": {
+    "id": "standard",
+    "name": "Standard",
+    "tag": "DLA MAŁYCH FIRM",
+    "price": 2800,
+    "description": "Uniwersalny sklep z szerszą konfiguracją i pomocą we wdrożeniu.",
+    "products": 10,
+    "pagesLabel": "Komplet standardowych podstron",
+    "revisions": 1,
+    "training": "2 godziny",
+    "warranty": "6 miesięcy",
+    "delivery": "2–4 tygodnie",
+    "benefits": [
+      "Sklep WooCommerce dopasowany do marki",
+      "10 produktów prostych w cenie",
+      "Wszystkie standardowe podstrony sklepu",
+      "Koszyk, płatności i podstawowe dostawy",
+      "Podstawowa konfiguracja Google Analytics",
+      "Szkolenie z obsługi — 2 godz."
+    ],
+    "excluded": [
+      "Blog i integracja InPost — dodatki"
+    ],
+    "scope": [
+      "Responsywność na desktopie, tablecie i telefonie",
+      "Gotowy motyw i personalizacja kolorów, fontów, zdjęć oraz układu podstawowych sekcji",
+      "Komplet standardowych widoków sklepu i stron informacyjnych z treści klienta",
+      "Wprowadzenie 10 produktów prostych",
+      "Jedna wybrana bramka płatności oraz podstawowe metody dostawy",
+      "Konto klienta, kody rabatowe, stany magazynowe i raporty",
+      "Podstawowe SEO techniczne i Google Analytics 4",
+      "Konfiguracja banera cookies i funkcji Omnibus",
+      "Testy zamówienia, 1 runda poprawek, szkolenie 2 godziny",
+      "Gwarancja na wykonane prace — 6 miesięcy"
+    ]
+  },
+  "pro": {
+    "id": "pro",
+    "name": "PRO",
+    "tag": "DLA ROZWIJAJĄCEGO SIĘ BIZNESU",
+    "price": 4500,
+    "featured": true,
+    "description": "Więcej personalizacji, narzędzi marketingowych i integracji sprzedażowych.",
+    "products": 20,
+    "pagesLabel": "Komplet standardowych podstron",
+    "revisions": 2,
+    "training": "2 godziny",
+    "warranty": "12 miesięcy",
+    "delivery": "4–6 tygodni",
+    "benefits": [
+      "Wszystkie funkcje Standard",
+      "Rozszerzona personalizacja motywu",
+      "Wprowadzenie 20 produktów prostych",
+      "Komplet podstron sklepu oraz blog",
+      "Integracja InPost w cenie wdrożenia",
+      "Google Analytics + Search Console"
+    ],
+    "excluded": [],
+    "scope": [
+      "Rozszerzone dopasowanie układu gotowych sekcji i nawigacji",
+      "Komplet typowych stron sklepu — bez limitu 2 lub 4 podstron",
+      "Wprowadzenie 20 produktów prostych",
+      "Konfiguracja jednej głównej bramki płatności",
+      "Podstawowe metody dostawy i konfiguracja InPost",
+      "Blog, Google Analytics 4 i Google Search Console",
+      "SEO techniczne, cookies i mechanizm Omnibus",
+      "Szkolenie online 2 godziny + instrukcja PDF",
+      "2 rundy poprawek, testy procesu zakupowego",
+      "Gwarancja na wykonane prace — 12 miesięcy"
+    ]
+  },
+  "business": {
+    "id": "business",
+    "name": "Business",
+    "tag": "SKLEP DOPASOWANY DO FIRMY",
+    "price": null,
+    "description": "Indywidualne procesy, automatyzacje i integracje z systemami firmy.",
+    "delivery": "Indywidualnie",
+    "revisions": null,
+    "warranty": "Do ustalenia",
+    "benefits": [
+      "Indywidualny zakres wdrożenia",
+      "Integracje z systemami firmy",
+      "Procesy B2B i automatyzacje",
+      "Zaawansowane moduły i katalog produktów",
+      "Migracja i synchronizacja danych",
+      "Konsultacja i dedykowana wycena"
+    ],
+    "excluded": [],
+    "scope": [
+      "Dobór technologii i architektury według potrzeb",
+      "Integracje z BaseLinker, SellAssist, Subiekt GT lub Comarch ERP Optima",
+      "Integracja z magazynem, hurtownią lub fulfillmentem",
+      "Możliwość sprzedaży B2B i niestandardowych cenników",
+      "Migracja sklepu i katalogu — po analizie źródła",
+      "Zakres, termin i cena określane indywidualnie"
+    ]
+  }
+};
   const addonDefs = [
-    {key:"inpost",name:"Integracja InPost",hint:"Konfiguracja dostawy do paczkomatów; ewentualna licencja osobno",price:300,category:"func",pro:true},
-    {key:"secondPayment",name:"Dodatkowa bramka płatności",hint:"Konfiguracja kolejnego operatora płatności",price:250,category:"func"},
-    {key:"courier",name:"Dodatkowa integracja kurierska",hint:"Konfiguracja DPD lub DHL; licencja osobno",price:300,category:"func"},
-    {key:"invoices",name:"Automatyczne wystawianie faktur",hint:"Konfiguracja standardowego modułu",price:250,category:"func"},
-    {key:"allegro",name:"Integracja Allegro",hint:"Zakres i koszty dodatkowych usług wymagają potwierdzenia",price:800,category:"func",custom:true},
-    {key:"blog",name:"Blog",hint:"Uruchomienie i przygotowanie podstawowej struktury",price:249,category:"content",pro:true},
-    {key:"gsc",name:"Google Search Console",hint:"Konfiguracja usługi i weryfikacja domeny",price:99,category:"marketing",pro:true},
-    {key:"seoExpanded",name:"Rozszerzone SEO e-commerce",hint:"Optymalizacja kategorii i produktów — zakres do wyceny",price:null,category:"marketing"},
-    {key:"tracking",name:"Rozszerzony pomiar e-commerce",hint:"Zdarzenia zakupowe i ścieżki konwersji — zakres do wyceny",price:null,category:"marketing"},
-    {key:"care",name:"Opieka techniczna",hint:"Aktualizacje, kontrola i wsparcie — koszt do ustalenia",price:null,category:"marketing",recurring:true}
-  ];
-  const customChoices = ["Zaawansowana personalizacja wyglądu","Integracja z Allegro / Base","Integracja z ERP / magazynem","Synchronizacja z hurtownią","Sprzedaż B2B / cenniki hurtowe","Automatyzacje zamówień","Migracja obecnego sklepu","Rozszerzona analityka"];
-  const defaults = () => ({simple:0,variable:0,pages:0,revisions:0,extras:{},hosting:false,needs:[],businessNote:"",clientName:"",clientEmail:"",clientPhone:"",hasSite:false,clientSite:"",clientMessage:"",prepared:false,errors:[]});
-  const states = {standard:defaults(),pro:defaults(),business:defaults()};
-  let current = packages.standard, step = 0, direct = false, opener = null, originalBodyOverflow = "";
+  {
+    "key": "inpost",
+    "name": "Integracja InPost",
+    "hint": "Konfiguracja paczkomatów; licencja zewnętrzna osobno",
+    "price": 300,
+    "category": "delivery",
+    "includedIn": [
+      "pro"
+    ]
+  },
+  {
+    "key": "courier",
+    "name": "Integracja DPD / DHL",
+    "hint": "Dodatkowa usługa dostawy; licencja zewnętrzna osobno",
+    "price": 300,
+    "category": "delivery"
+  },
+  {
+    "key": "fulfillment",
+    "name": "Usługa fulfillment",
+    "hint": "Połączenie z zewnętrznym magazynem / operatorem realizacji",
+    "price": null,
+    "category": "delivery"
+  },
+  {
+    "key": "stripe",
+    "name": "Stripe",
+    "hint": "Dodatkowy operator płatności, jeśli nie jest wybrany jako główny",
+    "price": 250,
+    "category": "payment",
+    "paymentCode": "stripe"
+  },
+  {
+    "key": "paypal",
+    "name": "PayPal",
+    "hint": "Dodatkowy operator płatności, jeśli nie jest wybrany jako główny",
+    "price": 250,
+    "category": "payment",
+    "paymentCode": "paypal"
+  },
+  {
+    "key": "klarna",
+    "name": "Klarna",
+    "hint": "Dodatkowy operator płatności, jeśli nie jest wybrany jako główny",
+    "price": 250,
+    "category": "payment",
+    "paymentCode": "klarna"
+  },
+  {
+    "key": "ifirma",
+    "name": "iFirma",
+    "hint": "Integracja z systemem księgowym / fakturami",
+    "price": 250,
+    "category": "accounting"
+  },
+  {
+    "key": "fakturownia",
+    "name": "Fakturownia",
+    "hint": "Integracja i automatyczne wystawianie dokumentów",
+    "price": 250,
+    "category": "accounting"
+  },
+  {
+    "key": "allegro",
+    "name": "Allegro",
+    "hint": "Integracja sprzedaży i ofert; wycena po poznaniu zakresu",
+    "price": null,
+    "category": "integration"
+  },
+  {
+    "key": "baselinker",
+    "name": "BaseLinker",
+    "hint": "Integracja zamówień i sprzedaży wielokanałowej",
+    "price": null,
+    "category": "integration"
+  },
+  {
+    "key": "sellassist",
+    "name": "SellAssist",
+    "hint": "Połączenie z narzędziem do zarządzania sprzedażą",
+    "price": null,
+    "category": "integration"
+  },
+  {
+    "key": "subiekt",
+    "name": "Subiekt GT",
+    "hint": "Integracja z programem sprzedażowo-magazynowym",
+    "price": null,
+    "category": "integration"
+  },
+  {
+    "key": "optima",
+    "name": "Comarch ERP Optima",
+    "hint": "Integracja z systemem ERP — wymaga analizy",
+    "price": null,
+    "category": "integration"
+  },
+  {
+    "key": "fbLogin",
+    "name": "Logowanie przez Facebook",
+    "hint": "Logowanie społecznościowe i konfiguracja aplikacji Meta",
+    "price": null,
+    "category": "integration"
+  },
+  {
+    "key": "blog",
+    "name": "Blog firmowy",
+    "hint": "Uruchomienie bloga i jego podstawowej struktury",
+    "price": 249,
+    "category": "content",
+    "includedIn": [
+      "pro"
+    ]
+  },
+  {
+    "key": "ga4",
+    "name": "Google Analytics 4",
+    "hint": "Konfiguracja analityki i podstawowego pomiaru",
+    "price": 200,
+    "category": "marketing",
+    "includedIn": [
+      "standard",
+      "pro"
+    ]
+  },
+  {
+    "key": "gsc",
+    "name": "Google Search Console",
+    "hint": "Dodanie strony, weryfikacja domeny i ustawienia",
+    "price": 99,
+    "category": "marketing",
+    "includedIn": [
+      "pro"
+    ]
+  },
+  {
+    "key": "seoExpanded",
+    "name": "Rozszerzone SEO e-commerce",
+    "hint": "Dodatkowa optymalizacja kategorii i produktów",
+    "price": null,
+    "category": "marketing"
+  },
+  {
+    "key": "tracking",
+    "name": "Rozszerzony pomiar zakupów",
+    "hint": "Zdarzenia e-commerce i ścieżka konwersji",
+    "price": null,
+    "category": "marketing"
+  },
+  {
+    "key": "facebookShop",
+    "name": "Sklep na Facebooku / Instagramie",
+    "hint": "Katalog produktów Meta i synchronizacja",
+    "price": null,
+    "category": "marketing"
+  },
+  {
+    "key": "abandoned",
+    "name": "Porzucone koszyki",
+    "hint": "Konfiguracja automatycznych przypomnień i zgód marketingowych",
+    "price": null,
+    "category": "marketing"
+  },
+  {
+    "key": "care",
+    "name": "Opieka techniczna",
+    "hint": "Pakiet aktualizacji i wsparcia — zakres i koszt do wyceny",
+    "price": null,
+    "category": "service",
+    "recurring": true
+  }
+];
+  const customChoices = ["Zaawansowana personalizacja wyglądu","Integracja Allegro / BaseLinker / SellAssist","Subiekt GT / Comarch ERP Optima","Synchronizacja z hurtownią","Sprzedaż B2B i cenniki hurtowe","Fulfillment i automatyzacje","Migracja obecnego sklepu","Rozszerzony marketing i analityka"];
+  const languageChoices = ["Angielski","Niemiecki","Ukraiński","Czeski","Francuski","Hiszpański","Włoski","Niderlandzki","Słowacki","Szwedzki","Norweski","Duński","Portugalski","Rumuński"];
+  const paymentChoices = [["przelewy24","Przelewy24"],["payu","PayU"],["tpay","Tpay"],["paynow","PayNow"],["stripe","Stripe"],["paypal","PayPal"],["klarna","Klarna"]];
+  const FINAL_STEP = 6;
+
+  const defaults = () => ({simple:0,variable:0,pages:0,revisions:0,extras:{},primaryPayment:"przelewy24",languages:[],hosting:false,needs:[],businessNote:"",clientName:"",clientEmail:"",clientPhone:"",hasSite:false,clientSite:"",clientMessage:"",prepared:false,errors:[]});
+  const states = Object.fromEntries(Object.keys(packages).map(id => [id,defaults()]));
+  let current = packages.start, step = 0, direct = false, opener = null, originalBodyOverflow = "";
   const state = () => states[current.id];
-  const isIncluded = (a) => !!(current.id === "pro" && a.pro);
+  const isIncluded = (a) => !!((a.includedIn || []).includes(current.id) || (a.paymentCode && a.paymentCode === state().primaryPayment));
   const selectedExtras = () => addonDefs.filter(a => state().extras[a.key] && !isIncluded(a));
-  const isCustom = () => current.price == null || selectedExtras().some(a=>a.price==null || a.custom);
+  const isCustom = () => current.price == null || state().languages.length>0 || selectedExtras().some(a=>a.price==null || a.custom);
   const price = () => {
     const s=state();
-    if(current.price==null) return {base:null,extras:null,project:null,annual:null,custom:true};
+    if(current.price==null) return {base:null,extras:null,project:null,annual:null,custom:true,lineItems:[]};
     const lineItems = [
       ...(s.simple ? [{name:"Dodatkowe produkty proste × "+s.simple,cost:s.simple*15}]:[]),
       ...(s.variable ? [{name:"Wprowadzane produkty wariantowe × "+s.variable,cost:s.variable*30}]:[]),
-      ...(s.pages ? [{name:"Dodatkowe podstrony × "+s.pages,cost:s.pages*200}]:[]),
+      ...(s.pages ? [{name:"Dodatkowe niestandardowe podstrony × "+s.pages,cost:s.pages*200}]:[]),
       ...(s.revisions ? [{name:"Dodatkowe rundy poprawek × "+s.revisions,cost:s.revisions*150}]:[]),
       ...selectedExtras().filter(a=>a.price!=null).map(a=>({name:a.name,cost:a.price}))
     ];
-    const extras=lineItems.reduce((acc,item)=>acc+item.cost,0);
+    const extras=lineItems.reduce((sum,item)=>sum+item.cost,0);
     return {base:current.price,extras,project:current.price+extras,annual:s.hosting?399:0,custom:isCustom(),lineItems};
   };
+
   const buildCards = () => {
     const container=one("#ens-cards");
     container.innerHTML=Object.values(packages).map(p=>{
@@ -88,12 +365,12 @@
     <div class="ens-field-end"><span class="ens-cost">${money(cost)}/szt.</span><div class="ens-stepper">
     <button type="button" data-counter="${key}" data-delta="-1" aria-label="Zmniejsz: ${label}">−</button><output aria-live="polite">${state()[key]}</output><button type="button" data-counter="${key}" data-delta="1" aria-label="Zwiększ: ${label}">+</button></div></div>
     </div>`;
-  const switchRow = (a) => {
-    const included=isIncluded(a), checked=included||!!state().extras[a.key];
+  const switchRow = function switchRow(a) {
+    const included=isIncluded(a),checked=included||!!state().extras[a.key],value=a.price===null?"Do wyceny":money(a.price);
     return `<div class="ens-field-row"><div><div class="ens-field-name">${a.name}</div><p class="ens-field-help">${a.hint}</p></div>
-      <div class="ens-field-end"><span class="ens-cost ${included?"included":""}">${included?"W cenie":a.price==null?"Do wyceny":money(a.price)}</span>
+      <div class="ens-field-end"><span class="ens-cost ${included?"included":""}">${included?"W cenie":value}</span>
         ${included?'<span class="ens-pill">✓</span>':`<label class="ens-toggle"><input type="checkbox" data-addon="${a.key}" aria-label="${a.name}" ${checked?"checked":""}><span></span></label>`}</div></div>`;
-  };
+};
   const field = (key,label,type="text",placeholder="",required=false) => {
     const invalid=state().errors.includes(key);
     const value=escapeHtml(state()[key]||"");
@@ -106,54 +383,66 @@
       sec("Jakie możliwości są Ci potrzebne?",`<div class="ens-business-picks">${customChoices.map((t,i)=>`<label><input type="checkbox" data-business="${i}" ${s.needs.includes(i)?"checked":""}><span>${t}</span></label>`).join("")}</div>`)+
       sec("Dodatkowe informacje",`<label class="ens-field">Krótki opis sklepu<textarea rows="5" maxlength="3000" data-note="businessNote" placeholder="Co zamierzasz sprzedawać? Jakie integracje są ważne?">${escapeHtml(s.businessNote)}</textarea></label>`);
   }
+  function languagesSection(){
+  const options=languageChoices.filter(x=>!state().languages.includes(x));
+  const chosen=state().languages.map(x=>`<span class="ens-language-chip">${x}<button type="button" data-remove-language="${escapeHtml(x)}" aria-label="Usuń język ${escapeHtml(x)}">×</button></span>`).join("");
+  return `<div class="ens-language-picker"><select id="ens-language-select" aria-label="Wybierz dodatkowy język"><option value="">Wybierz język...</option>${options.map(x=>`<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("")}</select><button type="button" class="ens-add-language" data-action="add-language" ${options.length?"":"disabled"}>+ Dodaj język</button></div><div class="ens-language-chips">${chosen}</div><p class="ens-field-help">Dodatkowe wersje językowe sklepu wymagają indywidualnej wyceny. Tłumaczenia tekstów i produktów nie są wliczone automatycznie.</p>`;
+}
   function stepPane(){
-    if(current.price==null) return businessPane();
-    const p=current;
-    if(step===0) return paneIntro("Co zawiera pakiet "+p.name+"?","Poniżej najważniejsze elementy zawarte w cenie Twojego sklepu. Dodatki możesz wybrać w kolejnych krokach.")+
+    if(current.price===null)return businessPane();
+    const p=current,s=state();
+    if(step===0)return paneIntro("Co zawiera pakiet "+p.name+"?","Najważniejsze elementy pakietu są wliczone w cenę. W kolejnych krokach możesz wybrać rozszerzenia.")+
       `<div class="ens-included-box"><strong>${p.name} · ${money(p.price)} netto</strong><ul class="ens-bullet-list">${p.benefits.map(x=>`<li>${x}</li>`).join("")}</ul></div>`+
-      sec("Parametry realizacji",`<div class="ens-field-row"><div><div class="ens-field-name">Wprowadzenie produktów prostych</div><p class="ens-field-help">Produkty dostarczone przez klienta</p></div><span class="ens-pill">${p.products} w cenie</span></div><div class="ens-field-row"><div class="ens-field-name">Podstrony informacyjne</div><span class="ens-pill">${p.pages} w cenie</span></div><div class="ens-field-row"><div class="ens-field-name">Rundy poprawek</div><span class="ens-pill">${p.revisions} w cenie</span></div><div class="ens-field-row"><div class="ens-field-name">Szkolenie online</div><span class="ens-pill">2 godz. w cenie</span></div>`)+
-      sec("Ważne informacje",'<p class="ens-field-help">Dostępne funkcje WooCommerce (np. kody rabatowe, warianty, konto klienta) nie są osobno płatne. Dodatkowa opłata dotyczy wyłącznie pracy, konfiguracji, wprowadzania danych lub rozszerzeń. Indywidualny projekt graficzny od zera nie jest wliczony w cenę.</p>');
-    if(step===1) return paneIntro("Produkty i funkcjonalności","Podaj dodatkową liczbę produktów do wprowadzenia przez Eniverse oraz wybierz potrzebne integracje.")+
-      sec("Produkty",counter("simple","Dodatkowe produkty proste","Ponad "+p.products+" produktów zawartych w pakiecie",15)+counter("variable","Produkty z wariantami","Wprowadzanie produktów wariantowych (od 30 zł/szt.); złożone warianty wycenimy osobno",30))+
-      sec("Płatności, dostawy i integracje",addonDefs.filter(a=>a.category==="func").map(switchRow).join(""))+
-      '<p class="ens-compact-note">Opłaty operatorów płatności, kurierów i licencje wtyczek nie są zawarte w cenie konfiguracji.</p>';
-    if(step===2) return paneIntro("Wygląd i zawartość","Rozszerz zawartość sklepu. Bazowy zakres personalizacji gotowego motywu jest w cenie Twojego pakietu.")+
-      sec("Treści i podstrony",counter("pages","Dodatkowe podstrony informacyjne","Ponad "+p.pages+" podstrony w pakiecie",200)+addonDefs.filter(a=>a.category==="content").map(switchRow).join(""))+
-      sec("Poprawki",counter("revisions","Dodatkowa runda poprawek","Ponad "+p.revisions+" rundy ujęte w pakiecie",150))+
-      sec("Zakres prac",'<p class="ens-field-help">Personalizacja motywu obejmuje dopasowanie elementów istniejących w jego układzie. Projekty indywidualne, dodatkowe języki i niestandardowe funkcjonalności wymagają osobnej wyceny.</p>');
-    if(step===3) return paneIntro("SEO, marketing i opieka","Uzupełnij sklep o narzędzia analityczne, SEO i usługi po wdrożeniu.")+
-      sec("Marketing i SEO",addonDefs.filter(a=>a.category==="marketing").map(switchRow).join(""))+
-      sec("Hosting",`<div class="ens-field-row"><div><div class="ens-field-name">Hosting WooCommerce</div><p class="ens-field-help">399 zł netto / rok. Promocja z pierwszym rokiem hostingu i domeną do potwierdzenia w ofercie.</p></div><div class="ens-field-end"><span class="ens-cost">399 zł/rok</span><label class="ens-toggle"><input type="checkbox" data-hosting ${state().hosting?"checked":""} aria-label="Dodaj hosting"><span></span></label></div></div>`)+
-      sec("Co już masz w cenie?",'<ul class="ens-bullet-list"><li>Podstawowe SEO techniczne</li><li>Podstawowa konfiguracja Google Analytics 4</li><li>Testy procesu składania zamówienia</li><li>Szkolenie z obsługi WooCommerce — 2 godziny</li></ul>');
+      sec("Zakres realizacji",`<div class="ens-field-row"><div class="ens-field-name">Wprowadzenie produktów prostych</div><span class="ens-pill">${p.products} w cenie</span></div><div class="ens-field-row"><div><div class="ens-field-name">Podstrony sklepu</div><p class="ens-field-help">Główna, katalog, produkt, koszyk, kasa, konto i typowe strony informacyjne</p></div><span class="ens-pill">Komplet</span></div><div class="ens-field-row"><div class="ens-field-name">Rundy poprawek</div><span class="ens-pill">${p.revisions} w cenie</span></div><div class="ens-field-row"><div class="ens-field-name">Szkolenie online</div><span class="ens-pill">${p.training}</span></div>`)+
+      (p.id==="start"?sec("Szablon komercyjny",'<p class="ens-field-help">Sklep opiera się na gotowym motywie WooCommerce wybranym z bibliotek takich jak Envato Market lub TemplateMonster. Koszt licencji motywu i ewentualnych płatnych dodatków jest osobny. Wybór konkretnego motywu nastąpi podczas ustalania projektu.</p>'):"");
+    if(step===1)return paneIntro("Produkty i zawartość","Dodaj produkty lub niestandardowe podstrony ponad standardowy zakres sklepu.")+
+      sec("Wprowadzanie produktów",counter("simple","Dodatkowy produkt prosty","Ponad "+p.products+" produktów zawartych w pakiecie",15)+counter("variable","Produkt z wariantami","Praca przy wprowadzaniu produktu z wariantami; złożone konfiguracje wyceniamy osobno",30))+
+      sec("Treści i dodatkowe strony",counter("pages","Dodatkowa niestandardowa podstrona","Komplet typowych podstron e-commerce jest już w cenie",200)+addonDefs.filter(a=>a.category==="content").map(switchRow).join(""))+
+      '<p class="ens-compact-note">Nie ma limitu systemowego liczby produktów ani standardowych stron WooCommerce. Powyższe liczniki dotyczą wyłącznie dodatkowej pracy Eniverse.</p>';
+    if(step===2)return paneIntro("Płatności i dostawa","Wybierz głównego operatora płatności. Dodatkowe integracje rozliczamy osobno.")+
+      sec("Główna metoda płatności",`<label class="ens-field">Jedna integracja płatności w cenie <select data-primary-payment>${paymentChoices.map(([v,n])=>`<option value="${v}" ${s.primaryPayment===v?"selected":""}>${n}</option>`).join("")}</select></label><p class="ens-compact-note">Stripe, PayPal lub Klarna mogą być główną bramką — wtedy nie dopłacasz za ich podstawową konfigurację. Prowizje operatorów i wymagane usługi są płatne osobno.</p>`)+
+      sec("Dodatkowe metody płatności",addonDefs.filter(a=>a.category==="payment").map(switchRow).join(""))+
+      sec("Dostawa i logistyka",addonDefs.filter(a=>a.category==="delivery").map(switchRow).join(""));
+    if(step===3)return paneIntro("Integracje z systemami","Połącz sklep z księgowością, marketplace lub narzędziami do automatyzacji sprzedaży.")+
+      sec("Księgowość i faktury",addonDefs.filter(a=>a.category==="accounting").map(switchRow).join(""))+
+      sec("Marketplace, ERP i konta klientów",addonDefs.filter(a=>a.category==="integration").map(switchRow).join(""))+
+      '<p class="ens-compact-note">Wdrożenie integracji ERP, BaseLinker, SellAssist i innych rozbudowanych systemów wymaga analizy. W podsumowaniu pojawi się informacja o dodatkowej wycenie.</p>';
+    if(step===4)return paneIntro("SEO i marketing","Narzędzia wspierające analizę sprzedaży, pozyskiwanie klientów i powroty do koszyka.")+
+      sec("Analityka, SEO i sprzedaż",addonDefs.filter(a=>a.category==="marketing").map(switchRow).join(""))+
+      '<p class="ens-compact-note">Kampanie reklamowe i abonamenty zewnętrznych dostawców są niezależne od jednorazowej konfiguracji sklepu.</p>';
+    if(step===5)return paneIntro("Języki, poprawki i opieka","Dostosuj wersje językowe, liczbę poprawek i usługi po wdrożeniu.")+
+      sec("Dodatkowe wersje językowe",languagesSection())+
+      sec("Dodatkowe poprawki",counter("revisions","Dodatkowa runda poprawek","Ponad "+p.revisions+" rundy w cenie pakietu",150))+
+      sec("Hosting i opieka",`<div class="ens-field-row"><div><div class="ens-field-name">Hosting WooCommerce</div><p class="ens-field-help">399 zł netto / rok. Ewentualną promocję hostingu z domeną potwierdzimy przy zamówieniu.</p></div><div class="ens-field-end"><span class="ens-cost">399 zł/rok</span><label class="ens-toggle"><input type="checkbox" data-hosting ${s.hosting?"checked":""} aria-label="Dodaj hosting"><span></span></label></div></div>${addonDefs.filter(a=>a.category==="service").map(switchRow).join("")}`);
     return "";
-  }
+}
   function summaryLines(){
-    const s=state(), a=price();
-    if(current.price==null) return `<div class="ens-summary-list"><div class="ens-summary-line"><span>Pakiet</span><strong>Business</strong></div><div class="ens-summary-line"><span>Sposób rozliczenia</span><strong>Wycena indywidualna</strong></div>${s.needs.map(i=>`<div class="ens-summary-line"><span>${customChoices[i]}</span><strong>Do wyceny</strong></div>`).join("")}</div>`;
-    const included=`<div class="ens-summary-line"><span>Produkty w cenie</span><strong>${current.products} prostych</strong></div><div class="ens-summary-line"><span>Podstrony w cenie</span><strong>${current.pages}</strong></div>`;
-    const extras=a.lineItems.map(x=>`<div class="ens-summary-line"><span>${x.name}</span><strong>${money(x.cost)}</strong></div>`).join("");
-    const custom=selectedExtras().filter(x=>x.price==null||x.custom).map(x=>`<div class="ens-summary-line"><span>${x.name}</span><strong>Do potwierdzenia</strong></div>`).join("");
-    return `<div class="ens-summary-list"><div class="ens-summary-line"><span>Pakiet ${current.name}</span><strong>${money(a.base)}</strong></div>${included}${extras}${custom}${s.hosting?`<div class="ens-summary-line"><span>Hosting — 1 rok</span><strong>${money(a.annual)}</strong></div>`:""}</div>`;
-  }
+ const s=state(),a=price();
+ if(current.price===null)return `<div class="ens-summary-list"><div class="ens-summary-line"><span>Pakiet</span><strong>Business</strong></div><div class="ens-summary-line"><span>Rozliczenie</span><strong>Wycena indywidualna</strong></div>${s.needs.map(i=>`<div class="ens-summary-line"><span>${customChoices[i]}</span><strong>Do ustalenia</strong></div>`).join("")}</div>`;
+ const base=`<div class="ens-summary-line"><span>Pakiet ${current.name}</span><strong>${money(a.base)}</strong></div><div class="ens-summary-line"><span>Podstrony typowego sklepu</span><strong>Komplet</strong></div><div class="ens-summary-line"><span>Produkty proste w cenie</span><strong>${current.products}</strong></div><div class="ens-summary-line"><span>Główna bramka płatności</span><strong>${paymentChoices.find(([code])=>code===s.primaryPayment)?.[1]||"Do ustalenia"}</strong></div>`;
+ const more=a.lineItems.map(x=>`<div class="ens-summary-line"><span>${x.name}</span><strong>${money(x.cost)}</strong></div>`).join("");
+ const custom=selectedExtras().filter(a=>a.price===null||a.custom).map(a=>`<div class="ens-summary-line"><span>${a.name}</span><strong>Do wyceny</strong></div>`).join("");
+ const langs=s.languages.map(l=>`<div class="ens-summary-line"><span>Język: ${escapeHtml(l)}</span><strong>Do wyceny</strong></div>`).join("");
+ return `<div class="ens-summary-list">${base}${more}${custom}${langs}${s.hosting?`<div class="ens-summary-line"><span>Hosting — 1 rok</span><strong>${money(a.annual)}</strong></div>`:""}</div>`;
+}
   function summaryPane(){
-    const s=state(), a=price(), isBiz=current.price==null;
-    const total=isBiz?'<div class="ens-summary-total"><span>Wycena projektu</span><div><strong>Indywidualna</strong></div></div>':`<div class="ens-summary-total"><span>Projekt i dodatki jednorazowe</span><div><strong>${money(a.project)}</strong> netto</div>${a.annual?`<p class="ens-compact-note">Hosting na pierwszy rok: ${money(a.annual)} netto (osobno od projektu)</p>`:""}${a.custom?'<p class="ens-compact-note">Wybrane elementy wymagają doprecyzowania i mogą zmienić finalną wycenę.</p>':""}<p class="ens-compact-note">Zaliczka 50% za projekt: ${money(a.project/2)} · Pozostała kwota: ${money(a.project/2)}</p></div>`;
-    return paneIntro(isBiz?"Zapytaj o wycenę Business":"Twoja wycena — "+current.name,isBiz?"Podsumuj potrzeby i prześlij dane kontaktowe. Przygotujemy ofertę po ustaleniu szczegółów.":"Sprawdź, co zawiera wybrany pakiet i jakie dodatki zostały naliczone.")+
-      sec("Co wybrano",summaryLines()+`<p class="ens-change-link">${direct?'<button class="ens-action-link" type="button" data-action="configure">Potrzebujesz skonfigurować pakiet? Przejdź do konfiguratora ↗</button>':'<button class="ens-action-link" type="button" data-action="edit">Zmień konfigurację ↗</button>'}</p>`)+total+
-      sec("Twoje dane kontaktowe",`<form id="ens-lead-form" novalidate><div class="ens-form-grid">
-        ${field("clientName","Imię i nazwisko / nazwa firmy","text","Np. Jan Kowalski",true)}
-        ${field("clientEmail","Adres e-mail","email","kontakt@firma.pl",true)}
-        ${field("clientPhone","Telefon (opcjonalnie)","tel","+48 000 000 000")}
-        <label class="ens-field">Masz już sklep internetowy?<select data-client="hasSite"><option value="false" ${!s.hasSite?"selected":""}>Nie</option><option value="true" ${s.hasSite?"selected":""}>Tak</option></select></label>
-        ${s.hasSite?`<div class="ens-full">${field("clientSite","Adres obecnego sklepu","url","https://twojsklep.pl")}</div>`:""}
-        <label class="ens-field ens-full">Opisz swoje potrzeby (opcjonalnie)<textarea data-client="clientMessage" rows="3" maxlength="3000" placeholder="Co chcesz sprzedawać? Czy masz jakieś wymagania?">${escapeHtml(s.clientMessage)}</textarea></label>
-        </div>
-        <p class="ens-demo-message">To demonstracyjny formularz. Po kliknięciu przycisku zobaczysz gotową treść zapytania do skopiowania. Wiadomość nie zostanie wysłana do Eniverse.</p>
-        ${s.errors.length?'<p class="ens-error" role="alert">Uzupełnij wymagane pola i sprawdź poprawność adresu e-mail oraz adresu sklepu.</p>':""}
-        <button type="submit" class="ens-btn ens-btn-primary ens-submit">Przygotuj podgląd zapytania <span aria-hidden="true">↗</span></button>
-        ${s.prepared?`<div class="ens-success" id="ens-preview" role="status"><h3>Zapytanie przygotowane — nie wysłano wiadomości</h3><p>Możesz skopiować treść i przesłać ją do agencji wybranym sposobem.</p><textarea class="ens-preview-area" id="ens-quote-copy" readonly></textarea><button type="button" class="ens-btn ens-btn-outline" data-action="copy">Kopiuj treść zapytania</button></div>`:""}
-      </form>`);
-  }
+ const s=state(),a=price(),biz=current.price===null;
+ const customCount=selectedExtras().filter(x=>x.price===null||x.custom).length+s.languages.length;
+ const total=biz?'<div class="ens-summary-total"><span>Wycena projektu</span><div><strong>Indywidualna</strong></div></div>':`<div class="ens-summary-total"><span>Projekt i dodatki jednorazowe</span><div><strong>${money(a.project)}</strong> netto</div>${a.annual?`<p class="ens-compact-note">Hosting: ${money(a.annual)}/rok — osobno od projektu</p>`:""}${a.custom?`<p class="ens-compact-note">Dodatkowo ${customCount} ${customCount===1?"opcja wymaga":"opcje wymagają"} indywidualnej wyceny.</p>`:""}<p class="ens-compact-note">Proponowana zaliczka 50%: ${money(a.project/2)} · Pozostała kwota: ${money(a.project/2)}</p></div>`;
+ return paneIntro(biz?"Zapytaj o wycenę Business":"Twoja wycena — "+current.name,biz?"Podsumuj potrzeby i zostaw dane kontaktowe.":"Sprawdź pakiet i dodatki przed przygotowaniem zapytania.")+
+   sec("Co wybrano",`<div class="ens-summary-collapsed"><div class="ens-summary-line"><span>Pakiet</span><strong>${current.name}</strong></div>${!biz?`<div class="ens-summary-line"><span>Standardowe podstrony</span><strong>Komplet</strong></div>`:""}<details class="ens-summary-expand"><summary>Pokaż szczegółowe elementy wyceny</summary>${summaryLines()}</details></div><p class="ens-change-link">${direct?'<button class="ens-action-link" type="button" data-action="configure">Potrzebujesz skonfigurować pakiet? Przejdź do konfiguratora ↗</button>':'<button class="ens-action-link" type="button" data-action="edit">Zmień konfigurację ↗</button>'}</p>`)+total+
+   sec("Twoje dane kontaktowe",`<form id="ens-lead-form" novalidate><div class="ens-form-grid">
+     ${field("clientName","Imię i nazwisko / firma","text","Np. Jan Kowalski",true)}
+     ${field("clientEmail","Adres e-mail","email","kontakt@firma.pl",true)}
+     ${field("clientPhone","Telefon (opcjonalnie)","tel","+48 000 000 000")}
+     <label class="ens-field">Masz już sklep internetowy?<select data-client="hasSite"><option value="false" ${!s.hasSite?"selected":""}>Nie</option><option value="true" ${s.hasSite?"selected":""}>Tak</option></select></label>
+     ${s.hasSite?`<div class="ens-full">${field("clientSite","Adres obecnego sklepu","url","https://twojsklep.pl")}</div>`:""}
+     <label class="ens-field ens-full">Informacje o projekcie (opcjonalnie)<textarea data-client="clientMessage" rows="2" maxlength="3000" placeholder="Co zamierzasz sprzedawać?">${escapeHtml(s.clientMessage)}</textarea></label></div>
+     <p class="ens-demo-message">Makieta demonstracyjna. Formularz nie wysyła wiadomości — pokaże gotową treść do skopiowania.</p>
+     ${s.errors.length?'<p class="ens-error" role="alert">Uzupełnij wymagane pola i sprawdź adres e-mail oraz adres sklepu.</p>':""}
+     <button type="submit" class="ens-btn ens-btn-primary ens-submit">Przygotuj podgląd zapytania <span aria-hidden="true">↗</span></button>
+     ${s.prepared?`<div class="ens-success" id="ens-preview" role="status"><h3>Zapytanie przygotowane — nie zostało wysłane</h3><p>Skopiuj treść i prześlij ją do Eniverse.</p><textarea class="ens-preview-area" id="ens-quote-copy" readonly></textarea><button type="button" class="ens-btn ens-btn-outline" data-action="copy">Kopiuj treść zapytania</button></div>`:""}</form>`);
+}
   function renderAside(){
     const a=price(), s=state();
     one("#ens-aside").innerHTML=`<span class="ens-quote-kicker">TWOJA WYCENA</span><h3 class="ens-quote-plan">Sklep ${current.name}</h3>`+
@@ -162,38 +451,39 @@
       `<p class="ens-aside-note">Przedstawione ceny dodatków są orientacyjne. Finalny koszt i warunki zostaną potwierdzone po ustaleniu szczegółów.</p>`;
   }
   function render(){
-    const biz=current.price==null;
-    one("#ens-dialog-title").textContent=step===4?(biz?"Zapytanie o wycenę":"Podsumowanie — "+current.name):(biz?"Określ potrzeby — Business":"Konfigurator — "+current.name);
-    one("#ens-dialog-subtitle").textContent=step===4?"Zobacz wybrany zakres i przygotuj zapytanie.":"Dopasuj zakres sklepu do swoich potrzeb.";
-    one("#ens-steps").hidden=direct;
-    const names=biz?["Zakres potrzeb","Podsumowanie"]:["Zakres pakietu","Funkcje","Wygląd","SEO i opieka","Podsumowanie"];
-    const mapped=biz?(step===4?1:0):step;
-    one("#ens-steps").innerHTML=names.map((n,i)=>`<div class="ens-step ${i===mapped?"is-active":i<mapped?"is-done":""}" ${i===mapped?'aria-current="step"':""}><span class="ens-step-num">${i<mapped?"✓":i+1}</span>${n}</div>`).join("");
-    one("#ens-dialog-content").innerHTML=step===4?summaryPane():stepPane();
-    one("#ens-dialog-foot").hidden=direct || step===4;
-    one("#ens-prev").hidden=step===0;
-    one("#ens-next").innerHTML=(biz||step===3?"Podsumowanie":"Dalej")+' <span aria-hidden="true">→</span>';
-    renderAside();
-    if(step===4 && state().prepared) setPreviewText();
-  }
+ const biz=current.price===null,final=step===FINAL_STEP;
+ one("#ens-dialog-title").textContent=final?(biz?"Zapytanie o wycenę":"Podsumowanie — "+current.name):(biz?"Określ potrzeby — Business":"Konfigurator — "+current.name);
+ one("#ens-dialog-subtitle").textContent=final?"Sprawdź wybrany zakres i przygotuj zapytanie.":"Dopasuj sklep do potrzeb Twojego biznesu.";
+ one("#ens-steps").hidden=direct;
+ const names=biz?["Zakres potrzeb","Podsumowanie"]:["Zakres","Produkty","Płatności","Integracje","Marketing","Języki","Podsumowanie"];
+ const mapped=biz?(final?1:0):step;
+ one("#ens-steps").innerHTML=names.map((n,i)=>`<div class="ens-step ${i===mapped?"is-active":i<mapped?"is-done":""}" ${i===mapped?'aria-current="step"':""}><span class="ens-step-num">${i<mapped?"✓":i+1}</span>${n}</div>`).join("");
+ one("#ens-dialog-content").innerHTML=final?summaryPane():stepPane();
+ one("#ens-dialog-foot").hidden=direct||final;
+ one("#ens-prev").hidden=step===0;
+ one("#ens-next").innerHTML=(biz||step===FINAL_STEP-1?"Podsumowanie":"Dalej")+' <span aria-hidden="true">→</span>';
+ renderAside();
+ if(final&&state().prepared)setPreviewText();
+}
   function quoteText(){
-    const s=state(),a=price();
-    const lines=["ZAPYTANIE — SKLEP INTERNETOWY ENIVERSE","Pakiet: "+current.name,"","DANE KLIENTA","Nazwa / imię i nazwisko: "+s.clientName,"E-mail: "+s.clientEmail,"Telefon: "+(s.clientPhone||"Nie podano"),"Istniejący sklep: "+(s.hasSite?"Tak":"Nie")];
-    if(s.clientSite)lines.push("Adres sklepu: "+s.clientSite);
-    lines.push("","ZAKRES");
-    if(current.price==null){
-      s.needs.forEach(i=>lines.push("- "+customChoices[i]));
-      if(s.businessNote)lines.push("Opis projektu: "+s.businessNote);
-      lines.push("Cena: wycena indywidualna");
-    }else{
-      lines.push("Cena bazowa: "+money(a.base),"Produkty proste w pakiecie: "+current.products,"Podstrony w pakiecie: "+current.pages);
-      a.lineItems.forEach(i=>lines.push("- "+i.name+": "+money(i.cost)));
-      selectedExtras().filter(x=>x.price==null||x.custom).forEach(i=>lines.push("- "+i.name+": wymaga potwierdzenia"));
-      lines.push("Dodatki: "+money(a.extras),"Projekt i dodatki jednorazowe: "+money(a.project),"Hosting roczny: "+(a.annual?money(a.annual):"Nie wybrano"),"Zaliczka 50% (propozycja): "+money(a.project/2));
-    }
-    lines.push("","WIADOMOŚĆ KLIENTA",s.clientMessage||"Nie podano","","Ceny orientacyjne netto. Wysłanie zapytania nie nastąpiło — podgląd demonstracyjny.");
-    return lines.join("\n");
-  }
+ const s=state(),a=price();
+ const lines=["ZAPYTANIE — SKLEP INTERNETOWY ENIVERSE","Pakiet: "+current.name,"","DANE KLIENTA","Firma / imię i nazwisko: "+s.clientName,"E-mail: "+s.clientEmail,"Telefon: "+(s.clientPhone||"Nie podano"),"Istniejący sklep: "+(s.hasSite?"Tak":"Nie")];
+ if(s.clientSite)lines.push("Adres sklepu: "+s.clientSite);
+ lines.push("","ZAKRES");
+ if(current.price===null){
+   s.needs.forEach(i=>lines.push("- "+customChoices[i]));
+   if(s.businessNote)lines.push("Opis projektu: "+s.businessNote);
+   lines.push("Cena: wycena indywidualna");
+ }else{
+   lines.push("Cena bazowa: "+money(a.base),"Standardowe podstrony sklepu: komplet","Produkty proste w pakiecie: "+current.products,"Główna bramka: "+(paymentChoices.find(([k])=>k===s.primaryPayment)?.[1]||"Brak"));
+   a.lineItems.forEach(i=>lines.push("- "+i.name+": "+money(i.cost)));
+   selectedExtras().filter(i=>i.price===null||i.custom).forEach(i=>lines.push("- "+i.name+": dodatkowa wycena"));
+   s.languages.forEach(l=>lines.push("- Dodatkowy język "+l+": do wyceny"));
+   lines.push("Dodatki z ustaloną ceną: "+money(a.extras),"Projekt i dodatki jednorazowe: "+money(a.project),"Hosting roczny: "+(a.annual?money(a.annual):"Nie wybrano"),"Zaliczka 50% (propozycja): "+money(a.project/2));
+ }
+ lines.push("","WIADOMOŚĆ KLIENTA",s.clientMessage||"Nie podano","","Podgląd demonstracyjny — żadna wiadomość nie została wysłana.");
+ return lines.join("\n");
+}
   function setPreviewText(){const el=one("#ens-quote-copy");if(el)el.value=quoteText();}
   function open(id,mode,button){
     if(!packages[id])return;
@@ -201,7 +491,7 @@
     current=packages[id];
     direct=mode==="direct";
     if(direct)states[id]=defaults();
-    step=direct?4:0;
+    step=direct?FINAL_STEP:0;
     originalBodyOverflow=document.body.style.overflow;
     document.body.style.overflow="hidden";
     one("#ens-overlay").hidden=false;
@@ -244,7 +534,14 @@
       }
       return;
     }
+    const remove=event.target.closest("[data-remove-language]");
+    if(remove){state().languages=state().languages.filter(x=>x!==remove.dataset.removeLanguage);render();return;}
     const action=event.target.closest("[data-action]")?.dataset.action;
+    if(action==="add-language"){
+      const lang=one("#ens-language-select")?.value;
+      if(lang&&languageChoices.includes(lang)&&!state().languages.includes(lang))state().languages.push(lang);
+      render();return;
+    }
     if(action==="configure"||action==="edit"){direct=false;navigate(0);return;}
     if(action==="copy"){
       const el=one("#ens-quote-copy");
@@ -260,6 +557,7 @@
   root.addEventListener("change",event=>{
     const t=event.target,s=state();
     if(t.dataset.addon){s.extras[t.dataset.addon]=t.checked;render();return;}
+    if(t.hasAttribute("data-primary-payment")){s.primaryPayment=t.value;render();return;}
     if(t.hasAttribute("data-hosting")){s.hosting=t.checked;render();return;}
     if(t.hasAttribute("data-business")){
       const index=Number(t.dataset.business);
@@ -284,7 +582,7 @@
     state().prepared=true;render();
     one("#ens-preview")?.scrollIntoView({behavior:"smooth",block:"nearest"});
   });
-  one("#ens-next").addEventListener("click",()=>navigate(current.price==null?4:Math.min(4,step+1)));
+  one("#ens-next").addEventListener("click",()=>navigate(current.price==null?FINAL_STEP:Math.min(FINAL_STEP,step+1)));
   one("#ens-prev").addEventListener("click",()=>navigate(current.price==null?0:Math.max(0,step-1)));
   one("#ens-close").addEventListener("click",close);
   one("#ens-overlay").addEventListener("click",event=>{if(event.target===one("#ens-overlay"))close();});
