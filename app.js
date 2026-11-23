@@ -71,7 +71,7 @@
       const featured=p.featured;
       const short=p.price==null?'<div class="ens-price-custom">Wycena<br>indywidualna</div>':`<div class="ens-price">${money(p.price).replace(" zł","")} <span>zł netto</span></div>`;
       return `<article class="ens-card ${featured?"ens-featured":""}" data-card="${p.id}" aria-labelledby="ens-plan-${p.id}">
-        ${featured?'<div class="ens-card-flag">NAJCZĘŚCIEJ WYBIERANY? / PROPOZYCJA</div>':""}
+        ${featured?'<div class="ens-card-flag">POLECANY</div>':""}
         <div class="ens-card-kicker">${p.tag}</div><h3 id="ens-plan-${p.id}">${p.name}</h3><p class="ens-card-description">${p.description}</p>
         <div class="ens-price-wrap">${short}<p class="ens-price-note">${p.price==null?"Cena po poznaniu potrzeb projektu":"Jednorazowa opłata za projekt"}</p></div>
         <div class="ens-included"><p class="ens-included-label">CO ZYSKUJESZ</p><ul class="ens-features">${p.benefits.map(x=>`<li><span class="ens-tick" aria-hidden="true">✓</span><span>${x}</span></li>`).join("")}${p.excluded.map(x=>`<li class="ens-excluded"><span class="ens-tick" aria-hidden="true">−</span><span>${x}</span></li>`).join("")}</ul>
