@@ -1,52 +1,12 @@
-# Eniverse — kalkulator wyceny sklepów internetowych
+# Eniverse — kalkulator sklepów internetowych
 
-Osobny projekt kalkulatora WooCommerce agencji Eniverse.
+Wersja bazowa na podstawie ZIP-a adaa67fbe061dd626f90a528acc971fb6db311b9. Start e-Commerce 2290 zł, Standard 2800 zł, PRO 4500 zł, Business — wycena indywidualna. Ceny netto. Ceny dodatków z kalkulatora stron są robocze.
 
 ## Podgląd
+Uruchom serwer statyczny i otwórz index.html. Formularz demo nie wysyła wiadomości. Plik index-sklepow.html to fragment produkcyjny Elementora.
 
-**[Otwórz interaktywny kalkulator sklepów](https://tkupidura.github.io/Eniverse-kalkulator-Sklep/)**
+## Wdrożenie robocze
+Wgraj pakiety-sklepow.css, kalkulator-sklepow.css, cennik-sklepow.js i kalkulator-sklepow.js do /wp-content/uploads/eniverse-kalkulator/Sklepy internetowe/. Wklej index-sklepow.html w widżet HTML. Osobny formularz CF7: pliki CF7-sklepy-*.txt, CSS ID widżetu Shortcode eniverse-shop-quote-form na tej samej stronie. Ustaw odbiorcę/nadawcę, Reply-To i przetestuj wysyłkę. Nie instaluj jako wtyczki.
 
-Podgląd jest automatycznie publikowany w GitHub Pages po każdej zmianie w `main`.
-
-## Pakiety — wersja robocza v2
-
-| Pakiet | Cena netto | Zakres |
-|---|---:|---|
-| Start e-Commerce | 2 290 zł | 5 produktów prostych, 1 h szkolenia, gotowy motyw z Envato Market / TemplateMonster itp.; licencja osobno |
-| Standard | 2 800 zł | 10 produktów prostych, 2 h szkolenia, standardowe podstrony sklepu |
-| PRO (wyróżniony) | 4 500 zł | 20 produktów, blog, InPost, rozszerzona personalizacja, GA4 + GSC |
-| Business | Wycena indywidualna | Integracje, systemy firmy, B2B, automatyzacje i projekty niestandardowe |
-
-Każdy pakiet zawiera typowy zestaw podstron i widoków sklepu (strona główna, katalog, kategorie, karty produktów, koszyk, zamówienie, konto, strony informacyjne). Nie stosujemy sztucznego limitu 2/4 standardowych podstron. Dodatkowe nietypowe podstrony to osobna usługa.
-
-## Konfigurator
-
-Dla pakietów Start e-Commerce, Standard i PRO:
-
-1. Zakres pakietu
-2. Produkty i treści
-3. Płatności i dostawa (w tym Stripe, PayPal, Klarna, fulfillment)
-4. Integracje (iFirma, Fakturownia, Allegro, Base — dawniej BaseLinker, Sellasist, Subiekt GT, Comarch ERP Optima, logowanie FB)
-5. SEO i marketing (Google Analytics 4, GSC, sklep na Facebooku/Instagramie, porzucone koszyki)
-6. Dodatkowe języki, poprawki, hosting i opieka
-7. Podsumowanie i formularz
-
-Business ma krótszą ścieżkę opisu potrzeb i formularza.
-
-Główny operator płatności wybierany jest w cenie pakietu. Jeżeli jako główny wybrano Stripe/PayPal/Klarna, nie naliczamy ponownie opłaty za tę samą integrację.
-
-Dodatki bez ustalonego cennika są oznaczone jako **Do wyceny**. Koszty licencji, abonamentów platform i opłat operatorów są osobne.
-
-## Pliki
-
-- `index.html` — niezależny podgląd;
-- `styles.css` — responsywny wygląd w przestrzeni nazw `#enishop`;
-- `app.js` — pakiety, konfigurator, ceny i zapytanie;
-- `test/smoke.cjs` — testy scenariuszy cenowych i formularza;
-- `.github/workflows/pages.yml` — weryfikacja i wdrożenie do GitHub Pages.
-
-**Ważne:** formularz to makieta — nie wysyła wiadomości. Ceny dodatków są robocze; przed użyciem produkcyjnym wymagają zatwierdzenia. Cena hostingu na pierwszy rok i promocje także wymagają potwierdzenia.
-
-## Oddzielny projekt
-
-[Kalkulator stron WWW](https://github.com/TKupidura/Eniverse-kalkulator) pozostaje niezależny. Inne platformy sklepowe planowane są na kolejne etapy.
+## Zakres
+Zachowano DM Sans, silnik modalu, pięć kroków, dodatki, SEO, kontakt, języki, szkolenia, hosting, podsumowanie i 50% zaliczki w pakietach stałocenowych. Business bez ceny i zaliczki; potrzeby i opis w quote_summary. Galeria stron WWW i abonament nieaktywne. Nie ustalono jeszcze cen produktów, InPost jako dodatku, licencji i pozostałych integracji sklepowych. Nie publikować komercyjnie przed uzgodnieniem i testami. Wewnętrzne ID start/one/wiz/firm zachowane dla kompatybilności.

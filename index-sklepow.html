@@ -1,0 +1,441 @@
+<!-- Eniverse: gotowy fragment do widżetu HTML Elementora. Sklepy internetowe, tryb produkcyjny. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/wp-content/uploads/eniverse-kalkulator/Sklepy%20internetowe/pakiety-sklepow.css?v=20261125-2">
+<link rel="stylesheet" href="/wp-content/uploads/eniverse-kalkulator/Sklepy%20internetowe/kalkulator-sklepow.css?v=20261125-2">
+
+
+    <!-- WIDOK CENNIKA I KONFIGURATORY -->
+    <div id="eni-shop-calc" data-mode="production" data-templates-api="">
+      <div class="ec-page ec-preview-page" id="ec-demo-page">
+        <section id="ec-catalog" aria-label="Cennik Eniverse — podgląd">
+          <div class="ec-preview-heading">
+            <h1 class="ec-page-title">Dopasuj sklep do swoich potrzeb</h1>
+            <p class="ec-intro">Każdy pakiet zawiera fundamenty potrzebne do rozpoczęcia sprzedaży.</p>
+          </div>
+          <div class="ec-packages-wide-scroll">
+             <div class="ec-packages-overview">
+                <div class="ec-package-group ec-package-group--main">
+                  <div class="ec-packages ec-packages--main" id="ec-packages"></div>
+                </div>
+             </div>
+           </div>
+           <p class="ec-pricing-note">Ceny dodatków są przykładowe, a końcowy zakres i termin realizacji wymagają zatwierdzenia. </p>
+        </section>
+      </div><!-- Koniec widoku demonstracyjnego. Elementor ukrywa ten widok, jeśli znajdzie istniejące karty .enp-card. -->
+                <!-- Wspólna galeria szablonów pakietów Abonament i Start. -->
+        <div class="ec-template-overlay" id="ec-template-modal" hidden>
+          <section class="ec-template-dialog" role="dialog" aria-modal="true" aria-labelledby="ec-template-title">
+            <header class="ec-template-header">
+              <div><span class="ec-template-kicker">SZABLONY ENIVERSE</span>
+                <h2 id="ec-template-title">Zobacz, jak może wyglądać Twoja strona.</h2>
+              </div>
+              <button type="button" class="ec-template-close" id="ec-template-close" aria-label="Zamknij galerię">×</button>
+            </header>
+            <div class="ec-template-content">
+              <div class="ec-template-sidebar">
+                <div class="ec-template-grid" id="ec-template-gallery" aria-label="Wybór projektu"></div>
+                <button type="button" class="ec-template-defer" id="ec-template-defer" aria-pressed="false">
+                  <strong>Szablon wybiorę później</strong>
+                  <small>Przejdź dalej bez wskazywania konkretnego projektu</small>
+                </button>
+              </div>
+              <div class="ec-template-preview">
+                <div id="ec-template-viewport" tabindex="0" role="region" aria-label="Podgląd projektu strony"></div>
+              </div>
+            </div>
+            <footer class="ec-template-footer"><div id="ec-template-external"></div><button type="button" id="ec-template-configure">Wybierz ten szablon i konfiguruj ↗</button></footer>
+          </section>
+        </div>
+<div class="ec-modal-stage" id="ec-modal-stage" hidden>
+          <section
+            class="ec-window"
+            id="ec-window"
+            role="dialog"
+            aria-labelledby="ec-title"
+            aria-modal="true"
+          >
+            <header class="ec-head">
+              <div>
+                <div class="ec-kicker">Eniverse / Konfigurator sklepu</div>
+                <h2 id="ec-title">Dopasuj swój pakiet.</h2>
+                <p class="ec-muted" id="ec-subtitle">
+                  Zacznij od pakietu. Dodaj to, czego potrzebujesz.
+                </p>
+              </div>
+              <button
+                class="ec-close ec-interactive"
+                id="ec-close"
+                type="button"
+                aria-label="Zamknij i wróć do pakietów"
+              >
+                ×
+              </button>
+            </header>
+            <div class="ec-steps" aria-label="Etapy konfiguracji">
+              <div class="ec-step" data-ec-nav-template hidden><span>1</span>Wybór szablonu</div>
+               <div class="ec-step active" data-ec-nav-step="0" aria-current="step"><span>1</span>Pakiet i dodatki</div>
+              <div class="ec-step" data-ec-nav-step="1"><span>2</span>Struktura i SEO</div>
+              <div class="ec-step" data-ec-nav-step="2"><span>3</span>Kontakt i poprawki</div>
+              <div class="ec-step" data-ec-nav-step="3"><span>4</span>Języki, usługi i szkolenia</div>
+              <div class="ec-step" data-ec-nav-step="4"><span>5</span>Podsumowanie</div>
+            </div>
+            <div class="ec-body" id="ec-config">
+              <div class="ec-fields">
+                <section class="ec-section">
+                  <h3>W cenie Twojego pakietu</h3>
+                  <p class="ec-muted">
+                    Stałe elementy bazy. Rozszerzenia wybierzesz poniżej.
+                  </p>
+                  <div class="ec-scope" id="ec-scope"></div>
+                  <p class="ec-excluded" id="ec-excluded"></p>
+                </section>
+                <section class="ec-section" id="ec-billing-section">
+                  <h3>Rozliczenie abonamentu</h3>
+                  <p class="ec-muted">Umowa na 12 miesięcy.</p>
+                  <div class="ec-options" role="group" aria-label="Rozliczenie">
+                    <label class="ec-option ec-interactive"
+                      ><input
+                        type="radio"
+                        name="ec-billing"
+                        value="monthly"
+                        checked
+                      /><span
+                        ><strong>Miesięcznie</strong
+                        ><small id="ec-monthly-detail"
+                          >12 rat za pakiet i dodatki</small
+                        ></span
+                      ><span class="ec-tag" id="ec-monthly-rate"
+                        ></span
+                      ></label
+                    ><label class="ec-option ec-interactive"
+                      ><input
+                        type="radio"
+                        name="ec-billing"
+                        value="annual"
+                      /><span
+                        ><strong>Rocznie z góry</strong
+                        ><small id="ec-annual-detail"
+                          >1 płatność za pakiet i dodatki</small
+                        ></span
+                      ><span class="ec-tag" id="ec-annual-rate"
+                        ></span
+                      ><small class="ec-billing-promo">Cena promocyjna pakietu: <del data-cennik="regularAnnual"></del> <strong class="ec-promo-price" data-cennik="annual" data-cennik-suffix=" / rok"></strong></small></label
+                    >
+                  </div>
+                </section>
+                <section class="ec-section">
+                  <h3>Struktura sklepu</h3>
+                  <p class="ec-muted" id="ec-structure"></p>
+                  <div class="ec-chips" id="ec-chips"></div>
+                  <div class="ec-counter-row">
+                    <div>
+                      Dodatkowe sekcje
+                      <div class="ec-muted" data-extra-cost="section" data-extra-unit=" / sekcję">
+                      </div>
+                    </div>
+                    <div class="ec-counter">
+                      <button
+                        type="button"
+                        data-counter="sections"
+                        data-delta="-1"
+                        aria-label="Usuń dodatkową sekcję"
+                        class="ec-interactive"
+                      >
+                        −</button
+                      ><input
+                        id="ec-sections"
+                        type="number"
+                        min="0"
+                        max="99"
+                        value="0"
+                        aria-label="Liczba dodatkowych sekcji"
+                      /><button
+                        type="button"
+                        data-counter="sections"
+                        data-delta="1"
+                        aria-label="Dodaj sekcję"
+                        class="ec-interactive"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="ec-counter-row">
+                    <div>
+                      Dodatkowe podstrony
+                      <div
+                        class="ec-muted"
+                        data-extra-cost="page" data-extra-unit=" / podstronę"
+                      >
+                      </div>
+                    </div>
+                    <div class="ec-counter">
+                      <button
+                        type="button"
+                        data-counter="pages"
+                        data-delta="-1"
+                        aria-label="Usuń dodatkową podstronę"
+                        class="ec-interactive"
+                      >
+                        −</button
+                      ><input
+                        id="ec-pages"
+                        type="number"
+                        min="0"
+                        max="99"
+                        value="0"
+                        aria-label="Liczba dodatkowych podstron"
+                      /><button
+                        type="button"
+                        data-counter="pages"
+                        data-delta="1"
+                        aria-label="Dodaj podstronę"
+                        class="ec-interactive"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </section>
+                <section class="ec-section">
+                  <h3>SEO</h3>
+                  <p class="ec-muted">
+                    Zakres z pakietu jest wybrany. Możesz go rozszerzyć.
+                  </p>
+                  <div
+                    class="ec-options"
+                    id="ec-seo"
+                    role="group"
+                    aria-label="Wariant SEO"
+                  ></div>
+                  <div class="ec-seo-services">
+                    <h4>Dodatkowe usługi SEO i reklamy</h4>
+                    <p class="ec-muted">Zaznacz wybrane usługi. Poniższe ceny są przykładowe i doliczane do projektu.</p>
+                    <div class="ec-seo-extra-grid" id="ec-seo-extras" role="group" aria-label="Dodatkowe usługi SEO"></div>
+                    <p class="ec-seo-price-note">Google Ads: uruchomienie kampanii bez budżetu reklamowego. Pozycjonowanie SEO: pakiet startowy, dalsza obsługa wyceniana osobno.</p>
+                  </div>
+                </section>
+                <section class="ec-section">
+                  <h3>Kontakt z klientem</h3>
+                  <div
+                    class="ec-options"
+                    id="ec-contact"
+                    role="group"
+                    aria-label="Wariant kontaktu"
+                  ></div>
+                </section>
+                <section class="ec-section">
+                  <h3>Sesje poprawek</h3>
+                  <p class="ec-muted" id="ec-revisions-base"></p>
+                  <div
+                    class="ec-options ec-revisions"
+                    id="ec-revisions"
+                    role="group"
+                    aria-label="Dodatkowe sesje poprawek"
+                  ></div>
+                </section>
+                <section class="ec-section" id="ec-training-section">
+                  <h3>Szkolenia</h3>
+                  <p class="ec-muted" id="ec-training-base"></p>
+                  <div
+                    class="ec-options"
+                    id="ec-training"
+                    role="group"
+                    aria-label="Rodzaj szkolenia"
+                  ></div>
+                  <p class="ec-note">
+                    Przy dłuższym szkoleniu dopłacasz różnicę względem wartości
+                    szkolenia w pakiecie. Krótsze szkolenie nie obniża ceny
+                    pakietu.
+                  </p>
+                </section>
+                <section class="ec-section">
+                  <h3>Hosting i opieka techniczna</h3>
+                  <div id="ec-hosting"></div>
+                </section>
+              </div>
+              <aside class="ec-aside" aria-label="Bieżąca wycena">
+                <span class="ec-badge" id="ec-badge"></span>
+                <h3>Twoja wycena</h3>
+                <div aria-live="polite" aria-atomic="true">
+                  <div class="ec-total" id="ec-base"></div>
+                  <p class="ec-muted" id="ec-period"></p>
+                  <div class="ec-mini-rate-comparison" id="ec-mini-rate-comparison" hidden>
+                    <div class="ec-mini-rate-variant" id="ec-mini-monthly-variant">
+                      <span>Miesięcznie</span>
+                      <strong id="ec-mini-monthly-price"></strong>
+                    </div>
+                    <div class="ec-mini-rate-variant" id="ec-mini-annual-variant">
+                      <span>Rocznie z góry</span>
+                      <strong id="ec-mini-annual-price"></strong>
+                      <small class="ec-abo-regular-price"><del data-cennik="regularAnnual"></del> — regularna cena samego pakietu</small>
+                    </div>
+                  </div>
+                  <p class="ec-muted ec-mini-rate-footnote" id="ec-mini-rate-footnote" hidden>Kwoty zawierają pakiet i wybrane dodatki.</p>
+                  <div class="ec-breakdown">
+                    <div class="ec-line">
+                      <span id="ec-base-label"></span
+                      ><span id="ec-base-cost"></span>
+                    </div>
+                    <div class="ec-line">
+                      <span id="ec-extra-label">Dodatki jednorazowe</span
+                      ><span id="ec-extra"></span>
+                    </div>
+                    <div class="ec-line ec-project-subtotal" id="ec-project-subtotal-row">
+                      <span id="ec-project-subtotal-label">Pakiet + dodatki</span>
+                      <strong id="ec-project-subtotal">0 zł</strong>
+                    </div>
+                    <div class="ec-line" id="ec-host-row">
+                      <span id="ec-host-label">Hosting / rok</span
+                      ><span id="ec-host-cost"></span>
+                    </div>
+                  </div>
+                  <div class="ec-smalltitle" id="ec-total-label"></div>
+                  <div class="ec-total" id="ec-total"></div>
+                  <p
+                    class="ec-muted"
+                    id="ec-paynote"
+                  ></p>
+                  <div
+                    class="ec-payment-aside"
+                    id="ec-payment-aside"
+                    hidden
+                  ></div>
+                  <p class="ec-note" id="ec-contract"></p>
+                </div>
+                <div class="ec-smalltitle" id="ec-items-title">
+                  Wybrane dodatki
+                </div>
+                <div
+                  id="ec-items"
+                  class="ec-muted"
+                ></div>
+                <p class="ec-note">
+                  Ceny rozszerzeń są przykładowe. Sklep i
+                  dodatki płatne jednorazowo. Hosting opcjonalnie: <span data-cennik="hostingWithCare"></span> za rok,
+                  płatne z góry. Kwoty netto; VAT według właściwej stawki.
+                </p>
+              </aside>
+            </div>
+            <div class="ec-summary" id="ec-summary" hidden></div>
+            <section
+              class="ec-lead"
+              id="ec-contact-section"
+              aria-labelledby="ec-lead-title"
+              hidden
+            >
+              <div class="ec-kicker">Ostatni krok</div>
+              <h3 id="ec-lead-title">Porozmawiajmy o Twoim sklepie.</h3>
+              <p class="ec-muted">
+                Do zapytania dołączymy wybrany pakiet, pełną konfigurację,
+                sposób płatności i wycenę.
+              </p>
+              <form id="ec-lead-form" novalidate>
+                <div class="ec-form-grid">
+                  <label class="ec-field ec-full" for="ec-client-name"
+                    >Imię i nazwisko / Nazwa firmy
+                    <span aria-hidden="true">*</span
+                    ><input
+                      id="ec-client-name"
+                      name="client_name"
+                      type="text"
+                      autocomplete="name"
+                      maxlength="150"
+                      required
+                      placeholder="np. Jan Kowalski / Nazwa firmy"
+                  /></label>
+                  <label class="ec-field" for="ec-client-email"
+                    >Adres e-mail <span aria-hidden="true">*</span
+                    ><input
+                      id="ec-client-email"
+                      name="client_email"
+                      type="email"
+                      autocomplete="email"
+                      maxlength="254"
+                      required
+                      placeholder="np. kontakt@twojafirma.pl"
+                  /></label>
+                  <label class="ec-field" for="ec-client-phone"
+                    >Telefon <span class="ec-muted">(opcjonalnie)</span
+                    ><input
+                      id="ec-client-phone"
+                      name="client_phone"
+                      type="tel"
+                      autocomplete="tel"
+                      maxlength="30"
+                      placeholder="np. +48 600 000 000"
+                  /></label>
+                </div>
+                <div class="ec-existing-site">
+                  <label class="ec-existing-toggle" for="ec-existing-check">
+                    <span>Czy masz swoją stronę/sklep?</span>
+                    <input id="ec-existing-check" name="has_site" type="checkbox" role="switch" aria-controls="ec-existing-url-wrap">
+                    <span class="ec-switch-track" aria-hidden="true"></span>
+                  </label>
+                  <div id="ec-existing-url-wrap" hidden>
+                    <label class="ec-field" for="ec-existing-url">Link do Twojej strony/sklepu
+                      <input id="ec-existing-url" name="existing_site_url" type="url" maxlength="500" placeholder="https://twojastrona.pl">
+                    </label>
+                  </div>
+                </div>
+                <label class="ec-field" id="ec-shop-needs-wrap" hidden for="ec-shop-needs">Opisz potrzeby sklepu (opcjonalnie)<textarea id="ec-shop-needs" maxlength="3000" rows="4" placeholder="Integracje, liczba produktów, migracja…"></textarea></label>
+                <input
+                  id="ec-quote-payload"
+                  type="hidden"
+                  name="quote_summary"
+                />
+                <p class="ec-note" id="ec-form-demo">
+                  Tryb makiety: „Wyślij” sprawdza dane i pokazuje podgląd
+                  wiadomości. Rzeczywista wysyłka będzie dostępna po podłączeniu
+                  formularza do skrzynki agencji.
+                </p>
+                <p
+                  id="ec-form-error"
+                  class="ec-form-error"
+                  role="alert"
+                  hidden
+                ></p>
+                <p id="ec-mini-template-required" class="ec-mini-template-required" role="status" hidden>
+                  Aby wysłać zapytanie dotyczące pakietu Abonament, wybierz szablon albo zaznacz opcję „Szablon wybiorę później” w galerii.
+                </p>
+                <button
+                  class="ec-action ec-interactive ec-send"
+                  type="submit"
+                  aria-describedby="ec-form-demo"
+                >
+                  Wyślij <span aria-hidden="true">↗</span>
+                </button>
+                <div id="ec-send-result" class="ec-send-result" hidden>
+                  <p id="ec-send-status" role="status" aria-live="polite"></p>
+                  <details open>
+                    <summary class="ec-interactive">
+                      Podgląd wiadomości do agencji
+                    </summary>
+                    <pre id="ec-message-preview"></pre>
+                  </details>
+                </div>
+              </form>
+            </section>
+
+            <footer class="ec-foot">
+              <p class="ec-muted" id="ec-footer-note"></p>
+              <button
+                class="ec-action ec-secondary ec-interactive"
+                id="ec-back"
+                type="button"
+                hidden
+              >
+                ← Wstecz
+              </button>
+              <button
+                class="ec-action ec-interactive"
+                id="ec-next"
+                type="button"
+              >Dalej →</button>
+            </footer>
+          </section>
+        </div>
+    </div>
+    <!-- LOGIKA PAKIETÓW, WYCENY I FORMULARZA -->
+<script src="/wp-content/uploads/eniverse-kalkulator/Sklepy%20internetowe/cennik-sklepow.js?v=20261125-2" defer></script>
+<script src="/wp-content/uploads/eniverse-kalkulator/Sklepy%20internetowe/kalkulator-sklepow.js?v=20261125-3" defer></script>

@@ -1,0 +1,19 @@
+Temat: Eniverse — zapytanie o sklep — pakiet [package_name]
+
+Dodatkowe nagłówki:
+Reply-To: [client_email]
+
+Treść wiadomości:
+DANE KLIENTA
+Imię i nazwisko / firma: [client_name]
+E-mail: [client_email]
+Telefon: [client_phone]
+Posiada stronę/sklep: [has_site]
+Adres: [existing_site_url]
+Pakiet: [package_name]
+
+PEŁNA WYCENA
+[quote_summary]
+
+Do: skopiuj adres odbiorcy z obecnego formularza Eniverse.
+Od: skopiuj zweryfikowany adres nadawcy z obecnego formularza (nie adres klienta).
