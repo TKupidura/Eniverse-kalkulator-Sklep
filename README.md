@@ -1,12 +1,13 @@
 # Eniverse — kalkulator sklepów internetowych
 
-Wersja bazowa na podstawie ZIP-a adaa67fbe061dd626f90a528acc971fb6db311b9. Start e-Commerce 2290 zł, Standard 2800 zł, PRO 4500 zł, Business — wycena indywidualna. Ceny netto. Ceny dodatków z kalkulatora stron są robocze.
+Aktualizacja 26.11.2026 na podstawie załączonego ZIP-a Eniverse-kalkulator.zip, z zachowaniem pakietów Start e-Commerce 2290 zł, Standard 2800 zł, PRO 4500 zł, Business — indywidualnie.
 
-## Podgląd
-Uruchom serwer statyczny i otwórz index.html. Formularz demo nie wysyła wiadomości. Plik index-sklepow.html to fragment produkcyjny Elementora.
+## Edycja
+- Boxy, opisy, kolejność, zakres i wyróżnienie: index.html (demo) i index-sklepow.html (Elementor). Zmiany boxów należy przenosić do obu plików.
+- Ceny, dostępność usług, warianty, revisions, zaliczka: cennik-sklepow.js. Wpis z ID i box HTML muszą istnieć razem. Business ma cena:null i wycenaIndywidualna:true. Nie wylicza ceny ani zaliczki.
+- Nowy dodatek: obiekt w dodatki. wPakietach — zawarty w cenie, dostepneWPakietach — dostępny. Brak obu — płatny we wszystkich. Warianty SEO/kontaktu/szkoleń w kolejności rosnących cen.
+- Style boxów osadzone w HTML zgodnie z nową wersją źródłową. kalkulator-sklepow.css zawiera style konfiguratora. Nie potrzeba pakiety-sklepow.css.
+- InPost tylko w PRO w cenie; stawka dodatkowa do uzgodnienia. Inne ceny i opcje robocze, do dalszego dopasowania. Abonament i biblioteka WWW nieaktywne.
 
-## Wdrożenie robocze
-Wgraj pakiety-sklepow.css, kalkulator-sklepow.css, cennik-sklepow.js i kalkulator-sklepow.js do /wp-content/uploads/eniverse-kalkulator/Sklepy internetowe/. Wklej index-sklepow.html w widżet HTML. Osobny formularz CF7: pliki CF7-sklepy-*.txt, CSS ID widżetu Shortcode eniverse-shop-quote-form na tej samej stronie. Ustaw odbiorcę/nadawcę, Reply-To i przetestuj wysyłkę. Nie instaluj jako wtyczki.
-
-## Zakres
-Zachowano DM Sans, silnik modalu, pięć kroków, dodatki, SEO, kontakt, języki, szkolenia, hosting, podsumowanie i 50% zaliczki w pakietach stałocenowych. Business bez ceny i zaliczki; potrzeby i opis w quote_summary. Galeria stron WWW i abonament nieaktywne. Nie ustalono jeszcze cen produktów, InPost jako dodatku, licencji i pozostałych integracji sklepowych. Nie publikować komercyjnie przed uzgodnieniem i testami. Wewnętrzne ID start/one/wiz/firm zachowane dla kompatybilności.
+## Wdrożenie
+Podgląd: index.html na serwerze statycznym. Produkcja: trzy pliki CSS/JS w /wp-content/eniverse-kalkulator/Sklepy internetowe/, cały index-sklepow.html w widżecie HTML Elementora. Osobny CF7 wg plików CF7-sklepy-*.txt; CSS ID widżetu shortcode eniverse-shop-quote-form. Ustaw nadawcę, odbiorcę, Reply-To i przetestuj wysyłkę na WordPress. Demo nie wysyła e-maili. Przy aktualizacji zmień wersję adresów zasobów i wyczyść cache. Nie instalować jako wtyczki. Przed publikacją sprawdzić karty, wszystkie kroki i wycenę, mobile i CF7.
