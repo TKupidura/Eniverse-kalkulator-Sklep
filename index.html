@@ -2,7 +2,7 @@
 <html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Eniverse — kalkulator sklepów</title></head><body>
 <!-- Eniverse: gotowy fragment do widżetu HTML Elementora. Sklepy internetowe, tryb produkcyjny. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
-<style id="eniverse-pakiety-stron">
+<style id="eniverse-pakiety-sklepow">
 /* Style strony demonstracyjnej oraz elementów poza #eni-shop-calc. */
 html:has(#eni-shop-calc[data-mode="demo"]) { color-scheme: light; }
 body:has(#eni-shop-calc[data-mode="demo"]) { margin: 0; background: #fff; }
@@ -38,10 +38,10 @@ body.eni-shop-calc-scroll-locked { overflow: hidden; }
 /* Dedykowany formularz Contact Form 7. */
 body:not(.elementor-editor-active) #eniverse-shop-quote-form { position:absolute!important; width:1px!important; height:1px!important; overflow:hidden!important; clip-path:inset(50%); pointer-events:none; }
 </style>
-<link rel="stylesheet" href="kalkulator-sklepow.css?v=20261126-shop-2">
+<link rel="stylesheet" href="kalkulator-sklepow.css?v=20261126-shop-3">
 
 <!-- Style wyłącznie boxów i sekcji ofertowej -->
-<style id="eniverse-boxy-pakietow">
+<style id="eniverse-boxy-pakietow-sklepow">
 #eni-shop-calc .ec-package {
         background: white;
         border: 1px solid var(--ec-line);
@@ -2053,22 +2053,19 @@ body:not(.elementor-editor-active) #eniverse-shop-quote-form { position:absolute
   background:currentColor;border:0;border-radius:1px;transform:translateY(-50%);
 }
 
-/* Sklepy: siatka czterech kart; pozostałe style z wersji źródłowej. */
-#eni-shop-calc #ec-catalog .ec-packages-overview {display:block;width:100%;min-width:0;}
-#eni-shop-calc #ec-catalog .ec-packages--main {grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start;}
-#eni-shop-calc #ec-catalog .ec-preview-heading {grid-template-columns:minmax(0,2fr) minmax(0,1fr);}
-#eni-shop-calc #ec-catalog .ec-preview-heading .ec-intro {text-align:right;font-size:14px;}
-#eni-shop-calc #ec-catalog .ec-preview-heading .ec-page-title {font-size:clamp(30px,3vw,40px);}
-#eni-shop-calc #ec-catalog .ec-package .ec-card-header {min-height:170px;}
-#eni-shop-calc #ec-catalog .ec-package .ec-kicker {color:#E20B0C;}
-#eni-shop-calc #ec-catalog .ec-package--featured .ec-kicker {color:#ff8080;}
-#eni-shop-calc #ec-catalog .ec-package .ec-card-budget {min-height:112px;}
-#eni-shop-calc #ec-catalog .ec-package .ec-individual-price strong {font-size:27px;white-space:normal;line-height:1.05;max-width:185px;}
-#eni-shop-calc #ec-catalog .ec-featured-badge {left:24px;right:auto;background:#E20B0C;}
-#eni-shop-calc #ec-shop-needs {width:100%;font:inherit;padding:12px;border:1px solid #dce0e3;border-radius:4px;resize:vertical;}
-#eni-shop-calc #ec-shop-needs-wrap[hidden] {display:none!important;}
-@media(max-width:1100px){#eni-shop-calc #ec-catalog .ec-packages--main {grid-template-columns:repeat(2,minmax(0,1fr));}}
-@media(max-width:650px){#eni-shop-calc #ec-catalog .ec-packages--main,#eni-shop-calc #ec-catalog .ec-preview-heading {grid-template-columns:1fr;}#eni-shop-calc #ec-catalog .ec-preview-heading .ec-intro {text-align:left;}#eni-shop-calc #ec-catalog .ec-package .ec-card-header,#eni-shop-calc #ec-catalog .ec-package .ec-card-description {min-height:0;}}
+/* Wyjątki dotyczące wyłącznie elementów specyficznych dla sklepów.
+   Typografia, kolory, nagłówek, kontener 1200 px, siatka, odstępy,
+   przyciski i breakpointy pozostają identyczne z kalkulatorem stron. */
+#eni-shop-calc #ec-catalog .ec-package .ec-individual-price strong {
+  font-size:29px; line-height:1.15; letter-spacing:-.045em;
+  font-weight:500; white-space:normal; overflow-wrap:normal;
+}
+#eni-shop-calc #ec-shop-needs {
+  box-sizing:border-box; width:100%; font:inherit; color:var(--ec-ink);
+  background:var(--ec-white); padding:10px 12px; border:1px solid var(--ec-line);
+  border-radius:6px; resize:vertical;
+}
+#eni-shop-calc #ec-shop-needs:focus-visible {outline:2px solid var(--ec-red);outline-offset:2px;}
 </style>
 
 
@@ -2538,7 +2535,7 @@ body:not(.elementor-editor-active) #eniverse-shop-quote-form { position:absolute
         </div>
     </div>
     <!-- LOGIKA PAKIETÓW, WYCENY I FORMULARZA -->
-<script src="cennik-sklepow.js?v=20261126-shop-2" defer></script>
-<script src="kalkulator-sklepow.js?v=20261126-shop-2" defer></script>
+<script src="cennik-sklepow.js?v=20261126-shop-3" defer></script>
+<script src="kalkulator-sklepow.js?v=20261126-shop-3" defer></script>
 
 </body></html>
