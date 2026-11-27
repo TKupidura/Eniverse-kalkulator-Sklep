@@ -3,8 +3,9 @@
         if (!root || root.dataset.eniInitialized) return;
         root.dataset.eniInitialized = "true";
         const production = root.dataset.mode === "production";
-        const q = (s) => root.querySelector(s),
-          all = (s) => [...root.querySelectorAll(s)],
+        let modalPortal=null;
+        const q = (s) => root.querySelector(s) || modalPortal?.querySelector(s) || null,
+          all = (s) => [...root.querySelectorAll(s), ...(modalPortal ? modalPortal.querySelectorAll(s) : [])],
           money = (n) => new Intl.NumberFormat("pl-PL", {useGrouping:"always"}).format(n) + " zł";
         // Jedno źródło oferty: walidacja struktury i normalizacja danych.
         function validatePricing(c) {
@@ -62,6 +63,20 @@
         if(!activePricing.length){
           root.innerHTML='<p class="ec-pricing-error">Aktualnie brak dostępnych pakietów.</p>';
           return;
+        }
+        // Wspólna warstwa wszystkich modali, poza kontenerami Elementor/WordPress.
+        const gallery=root.querySelector("#ec-template-modal"), wizard=root.querySelector("#ec-modal-stage");
+        if(gallery && wizard){
+          modalPortal=document.createElement("div");
+          modalPortal.id="eni-shop-calc-portal";
+          modalPortal.dataset.build="20261127-shop-13";
+          modalPortal.hidden=true;
+          document.body.append(modalPortal);
+          modalPortal.append(wizard,gallery);
+        }
+        function syncModalPortal(){
+          if(!modalPortal)return;
+          modalPortal.hidden=q("#ec-modal-stage").hidden && q("#ec-template-modal").hidden;
         }
         const settings=cennik.ustawienia;
         const months=settings.okresAbonamentu;
@@ -456,6 +471,7 @@
           templatePreviousScroll=document.body.classList.contains("eni-shop-calc-scroll-locked");
           document.body.classList.add("eni-shop-calc-scroll-locked");
           q("#ec-template-modal").hidden=false;
+          syncModalPortal();
           const selectedId=states[templateDialogPlanId].templateId;
           const selectedIndex=templateSamples.findIndex(t=>t.id===selectedId);
           showTemplate(selectedIndex>=0?selectedIndex:visibleTemplateIndex);
@@ -465,12 +481,13 @@
             (!q("#ec-modal-stage").hidden && !q("#ec-final").hidden)
               ? "Wybierz ten szablon i wróć do podsumowania ↗"
               : "Wybierz ten szablon i konfiguruj ↗";
-          q("#ec-template-close").focus();
+          q("#ec-template-close").focus({preventScroll:true});
         }
         function closeTemplateDialog() {
           q("#ec-template-modal").hidden=true;
+          syncModalPortal();
           document.body.classList.toggle("eni-shop-calc-scroll-locked",templatePreviousScroll);
-          templateOpener?.focus();
+          templateOpener?.focus({preventScroll:true});
         }
         q("#ec-template-gallery").addEventListener("click",event=>{
           const button=event.target.closest("[data-template-index]");
@@ -1137,16 +1154,18 @@
           scrollBeforeModal = document.body.classList.contains("eni-shop-calc-scroll-locked");
           document.body.classList.add("eni-shop-calc-scroll-locked");
           q("#ec-modal-stage").hidden = false;
+          syncModalPortal();
           fill();
           clearTemplateRequired();
           step(baseChoice ? (hasTemplateLibrary(current)?5:4) : 0, baseChoice);
           q("#ec-modal-stage").scrollTop = 0;
-          q("#ec-close").focus();
+          q("#ec-close").focus({preventScroll:true});
         }
         function close() {
           q("#ec-modal-stage").hidden = true;
+          syncModalPortal();
           document.body.classList.toggle("eni-shop-calc-scroll-locked",scrollBeforeModal);
-          opener?.focus();
+          opener?.focus({preventScroll:true});
         }
         q("#ec-catalog").addEventListener("click", (e) => {
           const b = e.target.closest("[data-configure],[data-choose]");
