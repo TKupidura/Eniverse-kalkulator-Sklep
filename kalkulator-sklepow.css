@@ -2871,3 +2871,35 @@
 @media(max-width:760px){#eni-shop-calc-portal #ec-modal-stage:not([hidden]){padding:5px!important;}}
 
 @media (max-width:650px){#eni-shop-calc-portal #ec-template-modal:not([hidden]){padding:5px!important;}}
+
+/* 20261127-shop-15: natywna warstwa top-layer niezależna od z-index motywu. */
+dialog#eni-shop-calc-portal {
+ position:fixed!important; inset:0!important;
+ width:100%!important; height:100%!important; max-width:none!important; max-height:none!important;
+ min-width:0!important; min-height:0!important; box-sizing:border-box!important;
+ margin:0!important; padding:0!important; border:0!important; border-radius:0!important;
+ outline:0!important; box-shadow:none!important; background:transparent!important;
+ overflow:hidden!important; transform:none!important; color:var(--ec-ink);
+}
+dialog#eni-shop-calc-portal[hidden]{display:none!important;}
+dialog#eni-shop-calc-portal:not([hidden]){display:block!important;}
+dialog#eni-shop-calc-portal::backdrop{background:transparent!important;}
+#eni-shop-calc-portal #ec-modal-stage #ec-window,
+#eni-shop-calc-portal #ec-template-modal .ec-template-dialog { background:#fff!important; opacity:1!important; }
+#eni-shop-calc-portal #ec-window > .ec-head {
+ position:relative!important; inset:auto!important; z-index:3!important; min-height:48px;
+ width:100%!important; box-sizing:border-box!important; flex:0 0 auto!important;
+ align-items:center!important; justify-content:space-between!important; gap:12px!important;
+ visibility:visible!important; opacity:1!important; overflow:visible!important;
+}
+#eni-shop-calc-portal #ec-window #ec-close,
+#eni-shop-calc-portal #ec-template-modal #ec-template-close {
+ position:relative!important; inset:auto!important; flex:0 0 36px!important; width:36px!important; height:36px!important;
+ display:grid!important; place-items:center!important; margin:0!important; padding:0!important;
+ border:1px solid #d9e0e5!important; border-radius:50%!important; background:#fff!important; color:#101112!important;
+ opacity:1!important; visibility:visible!important;
+}
+#eni-shop-calc-portal #ec-window #ec-close svg,#eni-shop-calc-portal #ec-template-modal #ec-template-close svg {
+ display:block!important; width:18px!important; height:18px!important; stroke:#101112!important; fill:none!important; opacity:1!important; visibility:visible!important;
+}
+#eni-shop-calc-portal #ec-window #ec-close svg path,#eni-shop-calc-portal #ec-template-modal #ec-template-close svg path {stroke:#101112!important;fill:none!important;}
