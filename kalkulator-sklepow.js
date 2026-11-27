@@ -67,16 +67,33 @@
         // Wspólna warstwa wszystkich modali, poza kontenerami Elementor/WordPress.
         const gallery=root.querySelector("#ec-template-modal"), wizard=root.querySelector("#ec-modal-stage");
         if(gallery && wizard){
-          modalPortal=document.createElement("div");
+          modalPortal=document.createElement("dialog");
           modalPortal.id="eni-shop-calc-portal";
-          modalPortal.dataset.build="20261127-shop-13";
+          modalPortal.dataset.build = "20261127-shop-15";
+            modalPortal.setAttribute("aria-label","Konfigurator Eniverse");
+            modalPortal.addEventListener("cancel",event=>{
+              event.preventDefault();
+              if(!q("#ec-template-modal").hidden)closeTemplateDialog();
+              else if(!q("#ec-modal-stage").hidden)close();
+            });
           modalPortal.hidden=true;
           document.body.append(modalPortal);
           modalPortal.append(wizard,gallery);
         }
         function syncModalPortal(){
           if(!modalPortal)return;
-          modalPortal.hidden=q("#ec-modal-stage").hidden && q("#ec-template-modal").hidden;
+          const closed=q("#ec-modal-stage").hidden && q("#ec-template-modal").hidden;
+          if(closed){
+            if(modalPortal.open && typeof modalPortal.close==="function")modalPortal.close();
+            modalPortal.hidden=true;
+            modalPortal.dataset.layer="closed";
+            return;
+          }
+          modalPortal.hidden=false;
+          if(typeof modalPortal.showModal==="function" && !modalPortal.open){
+            try{modalPortal.showModal();}catch(error){console.error("Eniverse: nie udało się otworzyć natywnego modala",error);}
+          }
+          modalPortal.dataset.layer=modalPortal.matches(":modal")?"top-layer":"fallback";
         }
         const settings=cennik.ustawienia;
         const months=settings.okresAbonamentu;
